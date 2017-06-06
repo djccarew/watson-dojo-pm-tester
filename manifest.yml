@@ -1,8 +1,6 @@
 ---
 applications:
-- host:  watson-dojo-pm-tester
-  name:  watson-dojo-pm-tester
-  command: node app.js
+- command: node app.js
   instances: 1
   memory: 64M
 
