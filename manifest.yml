@@ -1,6 +1,8 @@
 ---
 applications:
-- command: node app.js
+- name: watson-ml-tester
+  random-route: true
+  command: node app.js
   instances: 1
   memory: 64M
 
