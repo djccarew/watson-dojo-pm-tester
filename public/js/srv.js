@@ -8,7 +8,8 @@ function($http)	{
 	this.getScore	=	function(p) {
 		/* create the scoring input object */
 		var input = {
-			record: [ parseInt(p.AVGHEARTBEATSPERMIN), parseInt(p.PALPITATIONSPERDAY), parseInt(p.CHOLESTEROL), parseInt(p.BMI), parseInt(p.AGE), p.SEX, p.FAMILYHISTORY, p.SMOKERLAST5YRS, parseInt(p.EXERCISEMINPERWEEK) ]
+			fields:  ["AVGHEARTBEATSPERMIN","PALPITATIONSPERDAY","CHOLESTEROL","BMI","AGE","SEX","FAMILYHISTORY","SMOKERLAST5YRS","EXERCISEMINPERWEEK"],
+			values: [[ parseInt(p.AVGHEARTBEATSPERMIN), parseInt(p.PALPITATIONSPERDAY), parseInt(p.CHOLESTEROL), parseInt(p.BMI), parseInt(p.AGE), p.SEX, p.FAMILYHISTORY, p.SMOKERLAST5YRS, parseInt(p.EXERCISEMINPERWEEK) ]]			
 		};
    
 		/* call	scoring service	to generate results */
@@ -43,7 +44,8 @@ function($modal) {
 					return prettyHeader;
 				},
 				rspData: function	() {
-					return r.result;	
+				//	return r.result;	
+					return r;	
 				}
 			}
 		});		

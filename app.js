@@ -1,4 +1,3 @@
-
 // BASE SETUP
 // =============================================================================
 var path        = require('path');
@@ -27,8 +26,9 @@ var credentials = service.credentials;
 if (credentials != null) {	   
 		env.baseURL = credentials.url;
 		env.accessKey = credentials.access_key;
+		env.instance_id = credentials.instance_id;
 		var options = {
-			url: env.baseURL + '/v2/identity/token',
+			url: env.baseURL + '/v3/identity/token',
 			method: 'GET',
 			auth: {
 				user: credentials.username,
@@ -44,7 +44,7 @@ if (credentials != null) {
 			
 			token = body.token;
 			var opts = {
-			   url: env.baseURL + '/v2/online/deployments',
+			   url: env.baseURL + '/v3/wml_instances/' + env.instance_id + '/deployments',
 			   method: 'GET',
 			   headers: {
 				  Authorization: 'Bearer ' + token				  
@@ -56,9 +56,12 @@ if (credentials != null) {
 			      console.log('Error  from GET to retrieve scoring href ' + err);
 				  return;
 			   }
+			   
 			   for (i = 0; i < body.resources.length; i++) {
-				   if (body.resources[i].entity.name == 'Heart Failure Prediction Model') {
-					   scoringHref = body.resources[i].entity.scoringHref;
+				   if (body.resources[i].entity.published_model.name == 'Heart Failure Prediction Model') {
+					   scoringHref = body.resources[i].entity.scoring_url;
+					   env.published_model_id = body.resources[i].entity.published_model.guid;
+					   env.deployment_id = body.resources[i].metadata.guid;
 					   console.log('Found Heart Failure Deployment Model');
 					   break;
 				   }
@@ -110,10 +113,11 @@ console.log(' ');
 	try {
 		var opts = {
 			url: scoringHref,
-			method: "PUT",
+			method: "POST",
 			headers: {
 			   Authorization: 'Bearer ' + token				  
 			},
+			qs: {instance_id: env.instance_id, deployment_id: env.deployment_id, published_model_id: env.published_model_id },
 			json: req.body.input
 		};
 		request(opts, function(err, r, body) {

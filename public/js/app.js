@@ -20,14 +20,13 @@ function AppCtrl($scope,	dialogServices, dataServices)	{
 		.then(
 			function(rtn) {
 				if (rtn.status == 200){
-					// success
-					console.log("score results: " + JSON.stringify(rtn.data));
-					if (rtn.data.flag === undefined)
-					   $scope.showResults(rtn.data);
-				   else 
-					  $scope.showError(rtn.data.message);
+					// success				
+					if (rtn.data.errors === undefined)
+						$scope.showResults(rtn.data);			
+				    else 
+					   $scope.showError(rtn.data.errors[0].message);
 				} else {
-					//failure
+					// http failure
 					$scope.showError(rtn.data.message);
 				}
 			},
@@ -47,38 +46,37 @@ function AppCtrl($scope,	dialogServices, dataServices)	{
 }]
 
 // This controller handles the results of the call to the ML Service
-var	ResultsCtrl = ['$scope',	'$modalInstance',	'rspHeader', 'rspData',
-function ResultsCtrl($scope,	$modalInstance, rspHeader, rspData) {
+var	ResultsCtrl = ['$scope',	'$modalInstance',	'rspHeader', 'rspData', function ResultsCtrl($scope,	$modalInstance, rspHeader, rspData) {
 	
 	var formattedData = [];
 	
-	formattedData.push(rspData.AGE.toString());
-	formattedData.push(rspData.SEX);
-	if (rspData.FAMILYHISTORY == 'Y')
+	formattedData.push(rspData.values[0][4].toString()); // AGE
+	formattedData.push(rspData.values[0][5]); // SEX
+	if (rspData.values[0][6] == 'Y') // FAMILYHISTORY
 	   formattedData.push('Yes');
     else
 	   formattedData.push('No');
     
-	if (rspData.SMOKERLAST5YRS == 'Y')
+	if (rspData.values[0][7] == 'Y') //SMOKERLAST5YRS
 	   formattedData.push('Yes');
     else
 	   formattedData.push('No');
    
-    formattedData.push(rspData.EXERCISEMINPERWEEK.toString());
-	formattedData.push(rspData.CHOLESTEROL.toString());
-	formattedData.push(rspData.BMI.toString());
-	formattedData.push(rspData.AVGHEARTBEATSPERMIN.toString());
-	formattedData.push(rspData.PALPITATIONSPERDAY.toString());
-	if (rspData.prediction == 1)
+    formattedData.push(rspData.values[0][8].toString()); // EXERCISEMINPERWEEK
+	formattedData.push(rspData.values[0][2].toString()); // CHOLESTEROL
+	formattedData.push(rspData.values[0][3].toString()); // BMI
+	formattedData.push(rspData.values[0][0].toString()); // AVGHEARTBEATSPERMIN
+	formattedData.push(rspData.values[0][1].toString()); // PALPITATIONSPERDAY
+	if (rspData.values[0][17] == 1)  // PREDICTION
 	   formattedData.push('Yes');
     else
-	   formattedData.push('No');
+	   formattedData.push('No'); 
    
    // Format confidence
-    if (rspData.prediction == 1)
-       confidence = (rspData.probability.values[1] * 100).toFixed(2) + '%';
+    if (rspData.values[0][17] == 1)  // CONFIDENCE
+       confidence = (rspData.values[0][16][1] * 100).toFixed(2) + '%';
     else
-	   confidence = (rspData.probability.values[0] * 100).toFixed(2) + '%';
+	   confidence = (rspData.values[0][16][0] * 100).toFixed(2) + '%';
 	
 	formattedData.push(confidence);
 	
