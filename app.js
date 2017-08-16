@@ -117,7 +117,7 @@ console.log(' ');
 			headers: {
 			   Authorization: 'Bearer ' + token				  
 			},
-			qs: {instance_id: env.instance_id, deployment_id: env.deployment_id, published_model_id: env.published_model_id },
+			qs: { instance_id: env.instance_id, deployment_id: env.deployment_id, published_model_id: env.published_model_id },
 			json: req.body.input
 		};
 		request(opts, function(err, r, body) {
