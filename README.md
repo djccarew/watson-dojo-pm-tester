@@ -52,23 +52,19 @@ The IBM Data Science Experience is an interactive, collaborative, cloud-based en
 # Step 2: Deploy the testing application
 In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
 
-1. In a separate browser tab navigate to [https://ibm.biz/pmtester](https://ibm.biz/pmtester)
+1. [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/justinmccoy/watson-dojo-pm-tester.git)
 
-2. Click on the **Deploy to BLuemix** button.
+2. Log in into Bluemix with your credentials by clicking on the **Log in** link at the top right.
 
-![Deploy](images/Picture4.png)
-
-3. Log in into Bluemix with your credentials by clicking on the **Log in** link at the top right.
-
-4. Click on **Deploy**
+3. Click on **Deploy**
 
 ![Deploy](images/Picture5.png)
 
-5. A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to Bluemix. Click on the Delivery Pipeline tile to see the status of the deployment.
+4. A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to Bluemix. Click on the Delivery Pipeline tile to see the status of the deployment.
 
 ![Toolchain](images/Picture6.png)
 
-6. Wait for the **Deploy Stage** to complete successfully
+5. Wait for the **Deploy Stage** to complete successfully
 
 ![Deploy Stage](images/Picture7.png)
 
@@ -260,4 +256,4 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 
 
 ## Summary
-In this lab, you learned how to use the Bluemix CLI tool to manage an application including deployment, binding application services, and deleting the application.
+Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service in Bluemix
