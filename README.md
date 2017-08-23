@@ -256,4 +256,4 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 
 
 ## Summary
-In this lab, you learned how to use the Bluemix CLI tool to manage an application including deployment, binding application services, and deleting the application.
+Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service in Bluemix
