@@ -161,7 +161,7 @@ In this part of the lab you’ll create a Jupyter notebook and import the code t
 
 2. Click on **From File** and name the notebook _Apache Spark integration with Watson ML_
 
-3. Under **Notebook File** select the file **watsonmlint.ipynb**
+3. Under **Notebook File** select the file **demo1.ipynb**
 
 ![Select Notebook](images/Picture22.png)
 
