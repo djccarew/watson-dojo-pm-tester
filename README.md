@@ -37,6 +37,11 @@ This lab is designed to demonstrate how to use the IBM Data Science Experience t
 * An [IBM Bluemix Account](https://bluemix.net)
 * The Bluemix bx (CLI). Note: The cygwin shell is not supported for the bx CLI, on Windows. Instead, use a command prompt, powershell, or git bash shell
 
+* Download this Lab
+```bash
+git clone https://github.com/justinmccoy/watson-dojo-pm-tester.git
+```
+
 # Step 1: Sign up for the IBM Data Science Experience
 
 The IBM Data Science Experience is an interactive, collaborative, cloud-based environment where data scientists can use multiple tools to activate their insights. In this part of the lab you will sign up for a 30 day trial of the IBM Data Science Experience.
@@ -61,19 +66,23 @@ The IBM Data Science Experience is an interactive, collaborative, cloud-based en
 # Step 2: Deploy the testing application
 In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
 
-1. [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/justinmccoy/watson-dojo-pm-tester.git)
+1. Click on the Deploy to Bluemix Button Below
+
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/justinmccoy/watson-dojo-pm-tester.git)
 
 2. Log in into Bluemix with your credentials by clicking on the **Log in** link at the top right.
 
-3. Click on **Deploy**
+3. Take note of the space the app is being deployed too, later the Watson Machine Learning Service will need to be deployed into the same space.
+
+4. Click on **Deploy**
 
 ![Deploy](images/Picture5.png)
 
-4. A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to Bluemix. Click on the Delivery Pipeline tile to see the status of the deployment.
+5. A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to Bluemix. Click on the Delivery Pipeline tile to see the status of the deployment.
 
 ![Toolchain](images/Picture6.png)
 
-5. Wait for the **Deploy Stage** to complete successfully
+6. Wait for the **Deploy Stage** to complete successfully
 
 ![Deploy Stage](images/Picture7.png)
 
@@ -91,13 +100,15 @@ In this part of the lab, you'll create an instance of the Watson Machine Learnin
 
 ![Connect to Service](images/Picture9.png)
 
-4. Click **Create**
+4. Verify this service is being created in the same space as the app in Step 2.
 
-5. Click **Restage** when you’re prompted to restage your app
+5. Click **Create**
+
+6. Click **Restage** when you’re prompted to restage your app
 
 ![Connect to Service](images/Picture10.png)
 
-6. Go back to the Bluemix dashboard and wait until the app shows that it is running again
+7. Go back to the Bluemix dashboard and wait until the app shows that it is running again
 
 ![Connect to Service](images/Picture11.png)
 
@@ -181,7 +192,7 @@ In this part of the lab you’ll create a Jupyter notebook and import the code t
 
 ## Step 7: Run the notebook in the IBM Data Science Experience
 
-In this part of the lab you will run the notebook code to create a predictive model and save it in the Watson Machine Learning Service.
+In this part of the lab you will run the Juypter Notebook code creating a predictive model, and save it in the Watson Machine Learning Service.
 
 1.  Place your cursor in the first code block in the notebook.
 
@@ -228,6 +239,11 @@ In this part of the lab you’ll deploy the model you save by running the Python
 6. Your model should now be deployed and visible as a Deployment
 
 ![Create Deployment](images/Picture30.png)
+
+7. Restart your Node.js Web App.  From your Bluemix Dashboard select the restart icon for your web application.
+
+![Restart WebApp](images/Picture36.png)
+
 
 ## Step 9: Test the deployed Model
 
