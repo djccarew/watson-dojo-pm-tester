@@ -17,9 +17,17 @@ The information contained in these materials is provided for informational purpo
 
 # Overview
 
-In this lab you will build a predictive model to predict if certain patients being monitored for irregular heart activity are at risk for heart failure.
+This lab is designed to demonstrate how to use the IBM Data Science Experience to build a predictive model within a Juypter Notebook. The predictive model is then deployed to the Watson Machine Learning Service in Bluemix where it is consumed by users accessing a Node.js application.
 
-The predictive model is built in the IBM Data Science Experience with Apache Spark and is then deployed to the Watson Machine Learning Service in Bluemix where it is used by an application.
+![Flow](images/Picture35.png)
+
+1. The developer creates an IBM Data Science Experience Workspace 
+2. The IBM Data Science Experience depends on an Apache Spark service
+3. The IBM Data Science Experience uses Cloudant Object storage to manage your data
+4. This lab is built around a Juypter Notebook, this is where the developer will import data, train, and evaluate their model
+5. Trained models are deployed into production using IBM's Watson Machine Learning Service
+6. A Node.js web app is deployed on Bluemix calling the predictive model hosted in the Watson Machine Learning Service 
+7. A user visits the web app, enters their information, and the predictive model returns a response
 
 
 ## Prerequisites
