@@ -17,7 +17,7 @@ The information contained in these materials is provided for informational purpo
 
 # Overview
 
-This lab is designed to demonstrate how to build and deploy a predictive model within a Juypter Notebook on the IBM Data Science Experience w/Apache Spark. The predictive model is then deployed to the Watson Machine Learning Service in Bluemix where it is consumed by users accessing a Node.js application.
+This lab is designed to demonstrate how to use the IBM Data Science Experience to build a predictive model within a Juypter Notebook. The predictive model is then deployed to the Watson Machine Learning Service in Bluemix where it is consumed by users accessing a Node.js application.
 
 ![Flow](images/Picture35.png)
 
