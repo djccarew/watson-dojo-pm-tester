@@ -26,7 +26,8 @@ This lab is designed to demonstrate how to use the IBM Data Science Experience t
 3. The IBM Data Science Experience uses Cloudant Object storage to manage your data
 4. This lab is built around a Juypter Notebook, this is where the developer will import data, train, and evaluate their model
 5. Trained models are deployed into production using IBM's Watson Machine Learning Service
-6. A Node.js web app is deployed on Bluemix and consumes the Watson Machine Learning Service returning a prediction from a users input
+6. A Node.js web app is deployed on Bluemix calling the predictive model hosted in the Watson Machine Learning Service 
+7. A user visits the web app, enters their information, and the predictive model returns a response
 
 
 ## Prerequisites
