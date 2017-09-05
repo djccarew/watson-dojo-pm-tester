@@ -202,7 +202,7 @@ In this part of the lab you will run the Juypter Notebook code creating a predic
 
 ![Insert Credentials Step 2](images/Picture24.png)
 
-3. Your Object Storage credentials should now be in the cell. Ensure the variable is `Credentials_1`.
+3. Your Object Storage credentials should now be in the cell. Ensure the variable is `credentials_1`.
 
 ![Insert Credentials Step 3](images/Picture25.png)
 
