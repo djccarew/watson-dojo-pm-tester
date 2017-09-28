@@ -202,7 +202,7 @@ In this part of the lab you will run the Juypter Notebook code creating a predic
 
 ![Insert Credentials Step 2](images/Picture24.png)
 
-3. Your Object Storage credentials should now be in the cell. 
+3. Your Object Storage credentials should now be in the cell. Ensure the variable is `credentials_1`.
 
 ![Insert Credentials Step 3](images/Picture25.png)
 
@@ -240,7 +240,7 @@ In this part of the lab you’ll deploy the model you save by running the Python
 
 ![Create Deployment](images/Picture30.png)
 
-7. Restart your Node.js Web App.  From your Bluemix Dashboard select the restart icon for your web application.
+7. Restart the Node.js Web App.  From your Bluemix Dashboard select the restart icon for the web application.
 
 ![Restart WebApp](images/Picture36.png)
 
