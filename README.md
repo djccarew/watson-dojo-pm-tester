@@ -1,7 +1,7 @@
 This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Bluemix](http://www.ng.bluemix.net/docs/#services/PredictiveModeling/index.html).
 This version of the app is to be used with the Data Science Experience Service to test a predictive model developed in the lab.
 
-See the [original app](https://github.com/pmservice/predictive-modeling-samples) for a walkthrough of the source code. 
+See the [original app](https://github.com/pmservice/predictive-modeling-samples) for a walkthrough of the source code.
 
 
 
@@ -21,13 +21,13 @@ This lab is designed to demonstrate how to use the IBM Data Science Experience t
 
 ![Flow](images/Picture35.png)
 
-1. The developer creates an IBM Data Science Experience Workspace 
+1. The developer creates an IBM Data Science Experience Workspace
 2. The IBM Data Science Experience depends on an Apache Spark service
 3. The IBM Data Science Experience uses Cloudant Object storage to manage your data
 4. This lab is built around a Juypter Notebook, this is where the developer will import data, train, and evaluate their model
 5. Import data on heart failure
 6. Trained models are deployed into production using IBM's Watson Machine Learning Service
-7. A Node.js web app is deployed on Bluemix calling the predictive model hosted in the Watson Machine Learning Service 
+7. A Node.js web app is deployed on Bluemix calling the predictive model hosted in the Watson Machine Learning Service
 8. A user visits the web app, enters their information, and the predictive model returns a response
 
 
@@ -68,7 +68,7 @@ In this part of the lab you'll deploy the application that you will use later to
 
 1. Click on the Deploy to Bluemix Button Below
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/justinmccoy/watson-dojo-pm-tester.git)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/eciggaar/watson-dojo-pm-tester.git)
 
 2. Log in into Bluemix with your credentials by clicking on the **Log in** link at the top right.
 
@@ -198,7 +198,7 @@ In this part of the lab you will run the Juypter Notebook code creating a predic
 
 ![Insert Credentials Step 1](images/Picture23.png)
 
-2. Click on the **Find and Add** data icon (see step 1 in diagram below) and then select **Insert to code** under the file **patientdataV6.csv** (see step 2 in diagram below). Finally select **Insert Credentials** (see step 3 in diagram below) 
+2. Click on the **Find and Add** data icon (see step 1 in diagram below) and then select **Insert to code** under the file **patientdataV6.csv** (see step 2 in diagram below). Finally select **Insert Credentials** (see step 3 in diagram below)
 
 ![Insert Credentials Step 2](images/Picture24.png)
 
