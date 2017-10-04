@@ -5,7 +5,7 @@ See the [original app](https://github.com/pmservice/predictive-modeling-samples)
 
 
 
-# Lab - Create and deploy a scoring model to predict heart failure w/Bluemix and the IBM Data Science Experience
+# Lab - Create and deploy a scoring model to predict heart failure w/Bluemix and IBM Data Science Experience
 
 © Copyright IBM Corporation 2017
 
@@ -17,13 +17,13 @@ The information contained in these materials is provided for informational purpo
 
 # Overview
 
-This lab is designed to demonstrate how to use the IBM Data Science Experience to build a predictive model within a Jupyter Notebook. The predictive model is then deployed to the Watson Machine Learning Service in Bluemix where it is consumed by users accessing a Node.js application.
+This lab is designed to demonstrate how to use IBM Data Science Experience to build a predictive model within a Jupyter Notebook. The predictive model is then deployed to the Watson Machine Learning Service in Bluemix where it is consumed by users accessing a Node.js application.
 
 ![Flow](images/Picture35.png)
 
 1. The developer creates an IBM Data Science Experience Workspace.
-2. The IBM Data Science Experience depends on an Apache Spark service.
-3. The IBM Data Science Experience uses Cloud Object storage to manage your data.
+2. IBM Data Science Experience depends on an Apache Spark service.
+3. IBM Data Science Experience uses Cloud Object storage to manage your data.
 4. This lab is built around a Jupyter Notebook, this is where the developer will import data, train, and evaluate their model.
 5. Import data on heart failure.
 6. Trained models are deployed into production using IBM's Watson Machine Learning Service.
@@ -55,7 +55,7 @@ Your account must have enough resources available for at least 1 application (25
 
   ![Terms & conditions][1]
 
-  Define a name for your organization
+  Define a name for your organization.
 
   ![Organization name][2]
 
@@ -76,11 +76,11 @@ If you are all OK, you get the dashboard. Otherwise, you will be asked to create
 ![Create space in US][4]
 
 
-# Step 1: Sign up for the IBM Data Science Experience
+# Step 1: Sign up for IBM Data Science Experience
 
-The IBM Data Science Experience is an interactive, collaborative, cloud-based environment where data scientists can use multiple tools to activate their insights. In this part of the lab you will sign up for a 30-day trial of IBM Data Science Experience.
+IBM Data Science Experience is an interactive, collaborative, cloud-based environment where data scientists can use multiple tools to activate their insights. In this part of the lab you will sign up for a 30-day trial of IBM Data Science Experience.
 
-  1.  In a web browser navigate to [https://datascience.ibm.com](https://datascience.ibm.com)
+  1.  In a web browser navigate to [https://datascience.ibm.com](https://datascience.ibm.com).
 
   2.  Click on **Sign Up** at the top right.
 
@@ -90,7 +90,7 @@ The IBM Data Science Experience is an interactive, collaborative, cloud-based en
 
   ![Sign In](images/Picture2.png)
 
-  4. Follow the prompts to complete the sign up for the Data Science Experience. Please note that Two Bluemix services will be created for you (1 Cloud Object Storage (SWIFT) and 1 Apache Spark) and you should be presented with the Data Science Experience dashboard.
+  4. Follow the instructions to complete the sign up for IBM Data Science Experience. Please note that two Bluemix services will be created for you -- one Cloud Object Storage (SWIFT) and one Apache Spark -- and you should be presented with the Data Science Experience dashboard.
 
   ![Sign In](images/Picture3.png)
 
@@ -98,7 +98,7 @@ The IBM Data Science Experience is an interactive, collaborative, cloud-based en
 # Step 2: Deploy the testing application
 In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
 
-  1. Click on the Deploy to Bluemix Button below
+  1. Click on the Deploy to Bluemix Button below.
 
   [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/eciggaar/watson-dojo-pm-tester.git)
 
@@ -128,7 +128,7 @@ In this part of the lab, you'll create an instance of the Watson Machine Learnin
 
   ![Watson ML Service](images/Picture8.png)
 
-  3. On the left select your app from part 2 in the drop down labeled Connect to:
+  3. In the Connect to drop-down, select the application that you deployed earlier in Step 2 of this lab.
 
   ![Connect to Service](images/Picture9.png)
 
@@ -144,11 +144,11 @@ In this part of the lab, you'll create an instance of the Watson Machine Learnin
 
   ![Connect to Service](images/Picture11.png)
 
-## Step 4: Create a project in the IBM Data Science Experience and bind it to your Watson Machine Learning service instance
+## Step 4: Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance
 
-In this part of the lab you will create a new project in the IBM Data Science Experience and bind it to your instance of the Watson Machine Learning service
+In this part of the lab you will create a new project in IBM Data Science Experience and bind it to your instance of the Watson Machine Learning service.
 
-  1. In a new browser tab go to the [https://datascience.ibm.com](https://datascience.ibm.com)
+  1. In a new browser tab go to [https://datascience.ibm.com](https://datascience.ibm.com).
 
   2. Click on **Sign** in at the top of the page
 
@@ -156,7 +156,7 @@ In this part of the lab you will create a new project in the IBM Data Science Ex
 
   ![Create New Project](images/Picture12.png)
 
-  4. Enter _Watson ML Integration_ as the project name and click **Create**
+  4. Enter _Watson ML Integration_ as the project name and click **Create**.
 
   5. On the right click on Browse to upload the data file you’ll use to create a predictive model.
 
@@ -164,23 +164,23 @@ In this part of the lab you will create a new project in the IBM Data Science Ex
 
   6. Select the file **patientdataV6.csv** and click **Open**.
 
-  7. The file should now appear in the Data Assets section
+  7. The file should now appear in the Data Assets section.
 
   ![Data Assets](images/Picture14.png)
 
-  8. Click on **Settings** for the project
+  8. Click on **Settings** for the project.
 
   ![Settings](images/Picture15.png)
 
-  9. Click on add associated service and select **Machine Learning**
+  9. Click on add associated service and select **Machine Learning**.
 
   ![Associate Service](images/Picture16.png)
 
-  10. Choose your existing Machine Learning instance and click on **Select**
+  10. Choose your existing Machine Learning instance and click on **Select**.
 
   ![Add Watson ML Service](images/Picture17.png)
 
-  11. Click on your browser’s Back button and verify that the Watson Machine Learning service is now listed as one of your **Associated Services**
+  11. Click on your browser’s Back button and verify that the Watson Machine Learning service is now listed as one of your **Associated Services**.
 
   ![Associated Services](images/Picture18.png)
 
@@ -188,7 +188,7 @@ In this part of the lab you will create a new project in the IBM Data Science Ex
 
 ## Step 5: Save the credentials for your Watson Machine Learning Service
 
-In this part of the lab you’ll save the credentials for your Watson Machine Learning instance so you can use it later in your code
+In this part of the lab you’ll save the credentials for your Watson Machine Learning instance so you can use it later in your code.
 
 1. In a different browser tab go to [http://bluemix.net](http://bluemix.net) and log in to the Dashboard
 
@@ -200,28 +200,28 @@ In this part of the lab you’ll save the credentials for your Watson Machine Le
 
 ![View Credentials](images/Picture20.png)
 
-4. Save the username and password to a text file on your machine as you’ll need this information in your code later.
+4. Save the username and password to a text file on your machine as you’ll need this information later in your code notebook.
 
-## Step 6: Create a notebook in the IBM Data Science Experience
+## Step 6: Create a notebook in IBM Data Science Experience
 
-In this part of the lab you’ll create a Jupyter notebook and import the code to create a predictive model
+In this part of the lab you’ll create a Jupyter notebook and import the code to create a predictive model.
 
-1. In the Data Science Experience browser tab click on **Overview** and then click on **add notebooks**
+1. In the Data Science Experience browser tab click on **Overview** and then click on **add notebooks**.
 
 ![Add Notebook](images/Picture21.png)
 
-2. Click on **From File** and name the notebook _Apache Spark integration with Watson ML_
+2. Click on **From URL** and name the notebook _Apache Spark integration with Watson ML_.
 
-3. Under **Notebook File** select the file **demo1.ipynb**
+3. Under **Notebook File** select the file **demo1.ipynb**.
 
 ![Select Notebook](images/Picture22.png)
 
-4. Click **Create Notebook** to create the new notebook
+4. Click **Create Notebook** to create the new notebook.
 
-5. Leave your browser tab open for the next part
+5. Leave your browser tab open for the next part.
 
 
-## Step 7: Run the notebook in the IBM Data Science Experience
+## Step 7: Run the notebook in IBM Data Science Experience
 
 In this part of the lab you will run the Jupyter Notebook code creating a predictive model, and save it in the Watson Machine Learning Service.
 
@@ -311,3 +311,4 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [2]: https://github.com/eciggaar/chatbot-lab/blob/master/readmeimages/create-org.png?raw=true
 [3]: https://github.com/eciggaar/chatbot-lab/blob/master/readmeimages/create-space.png?raw=true
 [4]: https://github.com/eciggaar/chatbot-lab/blob/master/readmeimages/create-us-space.png?raw=true
+[5]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/select-region.png?raw=true
