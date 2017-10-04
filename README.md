@@ -65,7 +65,7 @@ Your account must have enough resources available for at least 1 application (25
 
   On the last page, click **I'm Ready** to complete the set up process.
 
-### If not already there, create a space in Bluemix US region
+### Create a space in Bluemix US region (if not already there)
 
 For the remainder of the lab it is **recommended** to work in the **US region** of Bluemix. For this, use Ctrl-click (or the equivalent for your system) to open the Bluemix dashboard. Click your account and choose **US South** as your active region.
 
@@ -75,7 +75,7 @@ If you are all OK, you get the dashboard. Otherwise, you will be asked to create
 
 ![Create space in US][4]
 
-### Download patient data
+### Download the sample patient data
 
 Use Ctrl-click (or the equivalent action for your system) to open the <a href="https://ibm.box.com/v/patientdataV6" target=download>patientdataV6.csv</a> CSV file in a separate tab. Click **Download** to download this file to your own device.
 
