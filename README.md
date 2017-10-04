@@ -34,7 +34,7 @@ This lab is designed to demonstrate how to use IBM Data Science Experience to bu
 ## Prerequisites
 
 * Bluemix supported [web browser](https://console.ng.bluemix.net/docs/overview/prereqs.html#prereqs)
-* An [IBM Bluemix Account](https://bluemix.net)
+* An [IBM Bluemix Account](https://console.bluemix.net)
 
 ## Before you begin
 To be able do this lab a Bluemix account is necessary. If you don't have one yet -- or you did not complete the initial set up of your Bluemix account -- follow the steps below.
@@ -65,9 +65,9 @@ Your account must have enough resources available for at least 1 application (25
 
   On the last page, click **I'm Ready** to complete the set up process.
 
-### Create a space in Bluemix US region
+### If not already there, create a space in Bluemix US region
 
-For the remainder of the lab it is recommended to work in the US region of Bluemix. For this, use Ctrl-click (or the equivalent for your system) to open the Bluemix dashboard. Click your account and choose **US South** as your active region.
+For the remainder of the lab it is **recommended** to work in the **US region** of Bluemix. For this, use Ctrl-click (or the equivalent for your system) to open the Bluemix dashboard. Click your account and choose **US South** as your active region.
 
 ![Select US region][5]
 
@@ -101,8 +101,8 @@ IBM Data Science Experience is an interactive, collaborative, cloud-based enviro
 
   ![DSX dashboard][6]
 
-  You should be presented with the Data Science Experience dashboard as shown above.
-  
+    You should be presented with the Data Science Experience dashboard as shown above.
+
 # Step 2: Deploy the testing application
 In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
 
@@ -198,125 +198,130 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
 In this part of the lab you’ll save the credentials for your Watson Machine Learning instance so you can use it later in your code.
 
-1. In a different browser tab go to [http://bluemix.net](http://bluemix.net) and log in to the Dashboard
+  1. In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to the Dashboard
 
-2. 1.	Double click on your Watson Machine Learning instance under **All Services**
+  2. Click on your Watson Machine Learning instance under **Services**.
 
-![Save Credentials](images/Picture19.png)
+  ![Save Credentials](images/Picture19.png)
 
-3. Click on **Service credentials** and then on **View credentials** to see the credentials
+  3. Click on **Service credentials** and then on **View credentials** to see the credentials.
 
-![View Credentials](images/Picture20.png)
+  ![View Credentials](images/Picture20.png)
 
-4. Save the username and password to a text file on your machine as you’ll need this information later in your code notebook.
+  4. Save the username and password to a text file on your machine. You’ll need this information later in your Jupyter notebook.
 
 ## Step 6: Create a notebook in IBM Data Science Experience
 
 In this part of the lab you’ll create a Jupyter notebook and import the code to create a predictive model.
 
-1. In the Data Science Experience browser tab click on **Overview** and then click on **add notebooks**.
+  1. In the Data Science Experience browser tab click on **Overview** and then click **add notebooks**.
 
-![Add Notebook](images/Picture21.png)
+  ![Add Notebook][15]
 
-2. Click on **From URL** and name the notebook _Apache Spark integration with Watson ML_.
+  2. Click on **From URL** and name the notebook _Apache Spark integration with Watson ML_.
 
-3. Under **Notebook File** select the file **demo1.ipynb**.
+  3. Under **Notebook URL** provide the following url: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/demo1.ipynb.
 
-![Select Notebook](images/Picture22.png)
+  ![Create Notebook][16]
 
-4. Click **Create Notebook** to create the new notebook.
+  4. Click **Create Notebook** to create the new notebook.
 
-5. Leave your browser tab open for the next part.
+  5. Leave your browser tab open for the next part.
 
 
 ## Step 7: Run the notebook in IBM Data Science Experience
 
 In this part of the lab you will run the Jupyter Notebook code creating a predictive model, and save it in the Watson Machine Learning Service.
 
-1.  Place your cursor in the first code block in the notebook.
+  1. Place your cursor in the first code block in the notebook.
 
-![Insert Credentials Step 1](images/Picture23.png)
+  ![Insert Credentials Step 1](images/Picture23.png)
 
-2. Click on the **Find and Add** data icon (see step 1 in diagram below) and then select **Insert to code** under the file **patientdataV6.csv** (see step 2 in diagram below). Finally select **Insert Credentials** (see step 3 in diagram below)
+  2. Click on the **Find and Add** data icon (see step 1 in diagram below) and then select **Insert to code** under the file **patientdataV6.csv** (see step 2 in diagram below). Finally select **Insert Credentials** (see step 3 in diagram below).
 
-![Insert Credentials Step 2](images/Picture24.png)
+  ![Insert Credentials Step 2](images/Picture24.png)
 
-3. Your Object Storage credentials should now be in the cell. Ensure the variable is `credentials_1`.
+  3. Your Object Storage credentials should now be in the cell. Ensure the variable is `credentials_1`.
 
-![Insert Credentials Step 3](images/Picture25.png)
+  ![Insert Credentials Step 3](images/Picture25.png)
 
-4. Click on the **Run** icon to run the code in the cell
+  4. Click on the **Run** icon to run the code in the cell.
 
-![Run Notebook](images/Picture26.png)
+  ![Run Notebook](images/Picture26.png)
 
-5. Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:  . Do **not** continue to the next cell until the code is finished running.
+  5. Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
+  Do **not** continue to the next cell until the code is finished running.
 
-6. When you get to the cell that says **Stop here !!!!** insert the username and password that you saved from your Watson Machine Learning instance into the code before running it.
+  6. When you get to the cell that says **Stop here !!!!** insert the username and password that you saved from your Watson Machine Learning instance into the code before running it.
 
-![Run Notebook](images/Picture27.png)
+  ![Run Notebook](images/Picture27.png)
 
-7. Continue running each cell until you finish the entire notebook.
+  7. Continue running each cell until you finish the entire notebook.
 
 ## Step 8: Deploy the saved predictive model as a scoring service
 
-In this part of the lab you’ll deploy the model you save by running the Python notebook as a scoring service in Watson Machine Learning
+In this part of the lab you’ll deploy the model you saved by running the Python notebook as a scoring service in Watson Machine Learning.
 
-1.	In a different browser tab go to [http://bluemix.net](http://bluemix.net) and log in to the Dashboard
+1. In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to your dashboard.
 
 2. Click on the entry for your Watson Machine Learning service under **Services**.
 
-3. Click **Manage** and then click on the **Launch Dashboard** button in the Watson Machine Learning tile
+3. Click **Manage** and then click on the **Launch Dashboard** button in the Watson Machine Learning tile.
 
-![Launch Dashboard](images/Picture28.png)
+![Launch Dashboard][17]
 
-4. Your saved model should appear. Under **Actions** select **Create Deployment**
+4. Your saved model should appear. Under **Actions** select **Create Deployment**.
 
-![Create Deployment](images/Picture29.png)
+![Create Deployment Step 1][18]
 
-5. Name the deployment _Heart Failure Prediction Model Deployment_ and click **Save**
+5. Name the deployment _Heart Failure Prediction Model Deployment_ and click **Save**. Keep the type of deployment set to the default value 'Online'.
 
-6. Your model should now be deployed and visible as a Deployment
+![Create Deployment Step 2][19]
 
-![Create Deployment](images/Picture30.png)
+6. Your model should now be deployed and visible as a Deployment with status 'ACTIVE'.
 
-7. Restart the Node.js Web App.  From your Bluemix Dashboard select the restart icon for the web application.
+![Create Deployment Step 3][20]
 
-![Restart WebApp](images/Picture36.png)
+7. Restart the Node.js Web App. Return to your Bluemix Dashboard and select the restart icon to restart the web application.
+
+![Restart WebApp][21]
 
 
 ## Step 9: Test the deployed Model
 
-In this part of the lab you’ll test the deployed model with the app that you deployed earlier.
+In this part of the lab you’ll test the deployed model with the Node.js application that you deployed earlier.
 
-
-1. Click on the URL for the app that you deployed earlier that tests the deployed model  
+1. Click on the application URL to open the application in a separate tab.
 
 ![Test Deployed Model](images/Picture31.png)
 
-3. When the application appears click on **Score now** to test the scoring model  with the default values.  
+3. When the application appears click on **Score now** to test the scoring model with the default values.  
 
-4. Verify that the model predicts that there is a risk of heart failure for the patient with these medical characteristics
+4. Verify that the model predicts that there is a risk of heart failure for the patient with these medical characteristics.
 
 ![Score](images/Picture32.png)
 
-5. **Click Close**. Run the app again with the following parameters
+5. **Click Close**. Run the app again with the following parameters.
 
 ![Score](images/Picture33.png)
 
-6. Verify that the model predicts that there is not a risk of heart failure for the patient with these medical characteristics
+6. Verify that the model predicts that there is not a risk of heart failure for the patient with these medical characteristics.
 
 ![Score](images/Picture34.png)
 
-Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service in Bluemix
+Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service in Bluemix :smiley:!!
+
+## Additional links
+
+* More data science journeys on IBM Code: [https://developer.ibm.com/code/journey/category/data-science/](https://developer.ibm.com/code/journey/category/data-science/)
+* IBM Data Science Experience: [https://www.ibm.com/analytics/us/en/watson-data-platform/data-science-experience/](https://www.ibm.com/analytics/us/en/watson-data-platform/data-science-experience/)
+* Watson Data Platform: [https://www.ibm.com/analytics/us/en/watson-data-platform/](https://www.ibm.com/analytics/us/en/watson-data-platform/)
 
 
-## Summary
-Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service in Bluemix
-
-[1]: https://github.com/eciggaar/chatbot-lab/blob/master/readmeimages/terms.png?raw=true
-[2]: https://github.com/eciggaar/chatbot-lab/blob/master/readmeimages/create-org.png?raw=true
-[3]: https://github.com/eciggaar/chatbot-lab/blob/master/readmeimages/create-space.png?raw=true
-[4]: https://github.com/eciggaar/chatbot-lab/blob/master/readmeimages/create-us-space.png?raw=true
+[1]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/terms.png?raw=true
+[2]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-org.png?raw=true
+[3]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-space.png?raw=true
+[4]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-us-space.png?raw=true
 [5]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/select-region.png?raw=true
 [6]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/dsx-dashboard.png?raw=true
 [7]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/pipeline.png?raw=true
@@ -327,3 +332,9 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [12]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/browse-file.png?raw=true
 [13]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/data-assets.png?raw=true
 [14]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/download-csv.png?raw=true
+[15]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/add-notebook.png?raw=true
+[16]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-notebook.png?raw=true
+[17]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/launch-dashboard.png?raw=true
+[18]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-deployment1.png?raw=true
+[19]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-deployment2.png?raw=true
+[20]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-deployment3.png?raw=true
