@@ -121,9 +121,9 @@ In this part of the lab you'll deploy the application that you will use later to
 
 # Step 3: Create an instance of the Watson Machine Learning Service
 
-In this part of the lab, you'll create an instance of the Watson Machine Learning service and bind it to the app that you created in Step 2.
+In this part of the lab, you'll create an instance of the Watson Machine Learning service and bind it to the application that you created in Step 2.
 
-  1. In your browser go to the Bluemix Dashboard. Click **Catalog**.
+  1. In your browser go to the Bluemix Dashboard and click **Catalog**.
 
   2. In the navigation menu at the left, select **Data  & Analytics** (under **Services**) and then select **Machine Learning**.
 
@@ -151,7 +151,7 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
   1. In a new browser tab go to [https://datascience.ibm.com](https://datascience.ibm.com).
 
-  2. Click on **Sign** in at the top of the page.
+  2. Click on **Sign In** at the top of the page.
 
   3. From the dashboard, click on **Create new** from the top-right. From the drop-down menu select **Project**.
 
@@ -316,4 +316,4 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [8]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-ml-instance.png?raw=true
 [9]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/connect-to.png?raw=true
 [10]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/overview-services-and-app.png?raw=true
-[11]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/overview-services-and-app.png?raw=true
+[11]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-project.png?raw=true
