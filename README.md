@@ -71,10 +71,11 @@ For the remainder of the lab it is recommended to work in the US region of Bluem
 
 ![Select US region][5]
 
-If you are all OK, you get the dashboard. Otherwise, you will be asked to create your first space in this region -- as depicted in the screenshot below.
+If you are all OK, you get the dashboard. Otherwise, you will be asked to create your first space in this region -- as depicted in the screenshot below. Typically `dev` would be a good name for your space.
 
 ![Create space in US][4]
 
+Congrats, you're now ready to start your data science experience :smiley:.
 
 # Step 1: Sign up for IBM Data Science Experience
 
@@ -92,13 +93,13 @@ IBM Data Science Experience is an interactive, collaborative, cloud-based enviro
 
   4. Follow the instructions to complete the sign up for IBM Data Science Experience. Please note that two Bluemix services will be created for you -- one Cloud Object Storage (SWIFT) and one Apache Spark -- and you should be presented with the Data Science Experience dashboard.
 
-  ![Sign In](images/Picture3.png)
+  ![DSX dashboard][6]]
 
 
 # Step 2: Deploy the testing application
 In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
 
-  1. Click on the Deploy to Bluemix Button below.
+  1. Click on the **Deploy to Bluemix** button below.
 
   [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/eciggaar/watson-dojo-pm-tester.git)
 
@@ -108,7 +109,7 @@ In this part of the lab you'll deploy the application that you will use later to
 
   4. Click on **Deploy** to deploy the application.
 
-  ![Deploy](images/Picture5.png)
+  ![Deploy][7]
 
   5. A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to Bluemix. Click on the Delivery Pipeline tile to see the status of the deployment.
 
@@ -122,15 +123,15 @@ In this part of the lab you'll deploy the application that you will use later to
 
 In this part of the lab, you'll create an instance of the Watson Machine Learning service and bind it to the app that you created in Step 2.
 
-  1. In your browser go to the Bluemix Dashboard. Click **Catalog**
+  1. In your browser go to the Bluemix Dashboard. Click **Catalog**.
 
-  2. In the navigation menu at the left, select **Data  & Analytics** (under **Services**) and then select **Machine Learning**
+  2. In the navigation menu at the left, select **Data  & Analytics** (under **Services**) and then select **Machine Learning**.
 
-  ![Watson ML Service](images/Picture8.png)
+  ![Watson ML Service][8]
 
   3. In the Connect to drop-down, select the application that you deployed earlier in Step 2 of this lab.
 
-  ![Connect to Service](images/Picture9.png)
+  ![Connect to Service][9]
 
   4. Verify this service is being created in the same space as the app in Step 2.
 
@@ -142,7 +143,7 @@ In this part of the lab, you'll create an instance of the Watson Machine Learnin
 
   7. Go back to the Bluemix dashboard and wait until the app shows that it is running again.
 
-  ![Connect to Service](images/Picture11.png)
+  ![Overview DSX services and test app][10]
 
 ## Step 4: Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance
 
@@ -150,11 +151,11 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
   1. In a new browser tab go to [https://datascience.ibm.com](https://datascience.ibm.com).
 
-  2. Click on **Sign** in at the top of the page
+  2. Click on **Sign** in at the top of the page.
 
-  3. Click on **Quick Start Guide** and then **Create New Project**
+  3. From the dashboard, click on **Create new** from the top-right. From the drop-down menu select **Project**.
 
-  ![Create New Project](images/Picture12.png)
+  ![Create New Project][11]
 
   4. Enter _Watson ML Integration_ as the project name and click **Create**.
 
@@ -255,7 +256,7 @@ In this part of the lab you’ll deploy the model you save by running the Python
 
 1.	In a different browser tab go to [http://bluemix.net](http://bluemix.net) and log in to the Dashboard
 
-2. Double click on the entry for your Watson Machine Learning service under **Services**
+2. Click on the entry for your Watson Machine Learning service under **Services**.
 
 3. Click **Manage** and then click on the **Launch Dashboard** button in the Watson Machine Learning tile
 
@@ -281,9 +282,7 @@ In this part of the lab you’ll deploy the model you save by running the Python
 In this part of the lab you’ll test the deployed model with the app that you deployed earlier.
 
 
-1.	In a different browser tab go to [http://bluemix.net](http://bluemix.net) and log in to the Dashboard
-
-2. Click on the URL for the app that you deployed earlier that tests the deployed model  
+1. Click on the URL for the app that you deployed earlier that tests the deployed model  
 
 ![Test Deployed Model](images/Picture31.png)
 
@@ -312,3 +311,9 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [3]: https://github.com/eciggaar/chatbot-lab/blob/master/readmeimages/create-space.png?raw=true
 [4]: https://github.com/eciggaar/chatbot-lab/blob/master/readmeimages/create-us-space.png?raw=true
 [5]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/select-region.png?raw=true
+[6]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/dsx-dashboard.png?raw=true
+[7]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/pipeline.png?raw=true
+[8]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-ml-instance.png?raw=true
+[9]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/connect-to.png?raw=true
+[10]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/overview-services-and-app.png?raw=true
+[11]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/overview-services-and-app.png?raw=true
