@@ -101,7 +101,7 @@ IBM Data Science Experience is an interactive, collaborative, cloud-based enviro
 
   ![DSX dashboard][6]
 
-    You should be presented with the Data Science Experience dashboard as shown above.
+  You should be presented with the Data Science Experience dashboard as shown above.
 
 # Step 2: Deploy the testing application
 In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
@@ -132,23 +132,21 @@ In this part of the lab, you'll create an instance of the Watson Machine Learnin
 
   1. In your browser go to the Bluemix Dashboard and click **Catalog**.
 
-  2. In the navigation menu at the left, select **Data  & Analytics** (under **Services**) and then select **Machine Learning**.
+  2. In the navigation menu at the left, select **Data  & Analytics** (under **Platform**) and then select **Machine Learning**.
 
   ![Watson ML Service][8]
 
-  3. In the Connect to drop-down, select the application that you deployed earlier in Step 2 of this lab.
+  3. In the **Connect to** drop-down, select the application that you deployed earlier in Step 2 of this lab.
 
   ![Connect to Service][9]
 
   4. Verify this service is being created in the same space as the app in Step 2.
 
-  5. Click **Create**.
-
-  6. Click **Restage** when you’re prompted to restage your application.
+  5. Click **Create**, followed by **Restage** when you’re prompted to restage your application.
 
   ![Connect to Service](images/Picture10.png)
 
-  7. Go back to the Bluemix dashboard and wait until the app shows that it is running again.
+  6. Go back to the Bluemix dashboard and wait until the app shows that it is running again.
 
   ![Overview DSX services and test app][10]
 
