@@ -43,27 +43,27 @@ Your account must have enough resources available for at least 1 application (25
 
 ### Already registered and completed set-up
 
-* When you already registered and completed the initial set-up of your Bluemix account, you directly jump to [Create a space in Bluemix US region](#create-a-space-in-bluemix-us-region).
+When you already registered and completed the initial set-up of your Bluemix account, you directly jump to [Create a space in Bluemix US region](#create-a-space-in-bluemix-us-region).
 
 ### Not registered
 
-* Use Ctrl-click (or the equivalent action for your system) to open the [Sign Up for Bluemix](https://developer.ibm.com/sso/bmregistration) page in a separate tab. Fill in the form and click **Start your FREE Bluemix trial** to complete the registration. You will receive an activation mail in your inbox.
+Use Ctrl-click (or the equivalent action for your system) to open the [Sign Up for Bluemix](https://developer.ibm.com/sso/bmregistration) page in a separate tab. Fill in the form and click **Start your FREE Bluemix trial** to complete the registration. You will receive an activation mail in your inbox.
 
 ### First time login
 
-* Use Ctrl-click (or the equivalent action for your system) to open the [Login to Bluemix](https://console.bluemix.net/login) in a separate tab. First time users need to complete a 4-step wizard. This starts by accepting the terms & conditions.
+Use Ctrl-click (or the equivalent action for your system) to open the [Login to Bluemix](https://console.bluemix.net/login) in a separate tab. First time users need to complete a 4-step wizard. This starts by accepting the terms & conditions.
 
   ![Terms & conditions][1]
 
-  Define a name for your organization.
+Define a name for your organization.
 
   ![Organization name][2]
 
-  Choose a name for your space. Typically `dev` would be a good name for your first space.
+Choose a name for your space. Typically `dev` would be a good name for your first space.
 
   ![Space name][3]
 
-  On the last page, click **I'm Ready** to complete the set up process.
+On the last page, click **I'm Ready** to complete the set up process.
 
 ### Create a space in Bluemix US region (if not already there)
 
