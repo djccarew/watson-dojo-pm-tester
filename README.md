@@ -237,7 +237,7 @@ In this part of the lab you will run the Jupyter Notebook code creating a predic
 
   ![Insert Credentials Step 1](images/Picture23.png)
 
-  2. Click on the **Find and Add** data icon (see step 1 in diagram below) and then select **Insert to code** under the file **patientdataV6.csv** (see step 2 in diagram below). Finally select **Insert Credentials** (see step 3 in diagram below).
+  2. Click on the **Find and Add** data icon -- see step 1 in diagram below -- and then select **Insert to code** under the file **patientdataV6.csv**. This is step 2 in diagram below. Finally select **Insert Credentials** -- which is step 3 in diagram below.
 
   ![Insert Credentials Step 2](images/Picture24.png)
 
