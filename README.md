@@ -110,7 +110,7 @@ In this part of the lab you'll deploy the application that you will use later to
 
   2. Log in into Bluemix with your credentials by clicking on the **Log in** link at the top right.
 
-  3. Make sure that you deploy the application to the same region and space as where the *Apache Spark* and *Cloud Object Storage* services were created when you signed up for IBM Data Science Experience. Please take note of the space as later in this lab the Watson Machine Learning Service needs to be deployed into the same space.
+  3. Make sure to deploy the application to the same region and space as where the *Apache Spark* and *Cloud Object Storage* services were created when you signed up for IBM Data Science Experience. Please take note of this space as later in this lab the Watson Machine Learning service needs to be deployed into the same space.
 
   4. Click on **Deploy** to deploy the application.
 
