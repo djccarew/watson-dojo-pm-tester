@@ -3,4 +3,4 @@ applications:
 - name: watson-ml-tester
   command: node app.js
   instances: 1
-  memory: 64M
+  memory: 128M
