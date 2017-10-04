@@ -75,7 +75,13 @@ If you are all OK, you get the dashboard. Otherwise, you will be asked to create
 
 ![Create space in US][4]
 
-Congrats, you're now ready to start your data science experience :smiley:.
+### Download patient data
+
+Use Ctrl-click (or the equivalent action for your system) to open the <a href="https://ibm.box.com/v/patientdataV6" target=download>patientdataV6.csv</a> CSV file in a separate tab. Click **Download** to download this file to your own device.
+
+  ![Download CSV][14]
+
+Congrats, you're now ready to start your data science experience :smiley:!!
 
 # Step 1: Sign up for IBM Data Science Experience
 
@@ -163,7 +169,7 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
   ![Import Data][12]
 
-  6. On your laptop, browse to the location where you downloaded the file **patientdataV6.csv** in the section [Before you begin](#before-you-begin) of this lab. Select the file and click on Open or Choose (depending on your operating system).
+  6. On your laptop, browse to the location where you downloaded the file **patientdataV6.csv** in the section [Download patient data](#download-patient-data) of this lab. Select the file and click on Open or Choose (depending on your operating system).
 
   7. Once successfully uploaded, the file should appear in the Data Assets section.
 
@@ -319,3 +325,4 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [11]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-project.png?raw=true
 [12]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/browse-file.png?raw=true
 [13]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/data-assets.png?raw=true
+[14]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/download-csv.png?raw=true
