@@ -161,13 +161,13 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
   5. On the right click on Browse to upload the data file you’ll use to create a predictive model.
 
-  ![Import Data](images/Picture13.png)
+  ![Import Data][12]
 
-  6. Select the file **patientdataV6.csv** and click **Open**.
+  6. On your laptop, browse to the location where you downloaded the file **patientdataV6.csv** in the section [Before you begin](#before-you-begin) of this lab. Select the file and click on Open or Choose (depending on your operating system).
 
-  7. The file should now appear in the Data Assets section.
+  7. Once successfully uploaded, the file should appear in the Data Assets section.
 
-  ![Data Assets](images/Picture14.png)
+  ![Data Assets][13]
 
   8. Click on **Settings** for the project.
 
@@ -317,3 +317,5 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [9]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/connect-to.png?raw=true
 [10]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/overview-services-and-app.png?raw=true
 [11]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-project.png?raw=true
+[12]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/browse-file.png?raw=true
+[13]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/data-assets.png?raw=true
