@@ -97,11 +97,9 @@ IBM Data Science Experience is an interactive, collaborative, cloud-based enviro
 
   ![Sign In](images/Picture2.png)
 
-  4. Follow the instructions to complete the sign up for IBM Data Science Experience. Please note that two Bluemix services will be created for you -- one Cloud Object Storage (SWIFT) and one Apache Spark.
+  4. Follow the instructions to complete the sign up for IBM Data Science Experience. Please note that two Bluemix services will be created for you -- one Cloud Object Storage (SWIFT) and one Apache Spark. You should now see the Data Science Experience dashboard as shown below.
 
   ![DSX dashboard][6]
-
-  You should be presented with the Data Science Experience dashboard as shown above.
 
 # Step 2: Deploy the testing application
 In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
