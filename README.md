@@ -91,11 +91,11 @@ IBM Data Science Experience is an interactive, collaborative, cloud-based enviro
 
   2.  Click on **Sign Up** at the top right.
 
-  ![Sign Up](images/Picture1.png)
+  ![Sign Up][36]
 
   3. Click on **Sign in with your IBM id** and enter your Bluemix credentials.
 
-  ![Sign In](images/Picture2.png)
+  ![Sign In][37]
 
   4. Follow the instructions to complete the sign up for IBM Data Science Experience. Note that two Bluemix services will be created for you -- a Cloud Object Storage service and an Apache Spark service. As soon as the 'Get Started' button is clickable, click it and you should be directed to the Data Science Experience dashboard as shown below.
 
@@ -349,3 +349,5 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [33]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/open-app.png?raw=true
 [34]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/failure-yes.png?raw=true
 [35]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/failure-no.png?raw=true
+[36]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/dsx-signup.png?raw=true
+[37]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/use-existing-id.png?raw=true
