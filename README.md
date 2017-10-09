@@ -65,7 +65,7 @@ Choose a name for your space. Typically `dev` would be a good name for your firs
 
 On the last page, click **I'm Ready** to complete the set up process.
 
-### Create a space in Bluemix US region (if not already there)
+### Create a space in Bluemix US region
 
 For the remainder of this lab we switch to the **US region** of Bluemix. For this, use Ctrl-click (or the equivalent for your system) to open the Bluemix dashboard. Click your account and choose **US South** as your active region.
 
