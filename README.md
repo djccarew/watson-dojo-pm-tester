@@ -39,7 +39,7 @@ This lab is designed to demonstrate how to use IBM Data Science Experience to bu
 ## Before you begin
 To be able do this lab a Bluemix account is necessary. If you don't have one yet -- or you did not complete the initial set up of your Bluemix account -- follow the steps below.
 
-Your account must have enough resources available for at least 1 application (256MB) and 3 services.
+Your account must have enough resources available for at least 1 application (128MB) and 4 services.
 
 ### Already registered and completed set-up
 
@@ -47,7 +47,7 @@ When you already registered and completed the initial set-up of your Bluemix acc
 
 ### Not registered
 
-Use Ctrl-click (or the equivalent action for your system) to open the [Sign Up for Bluemix](https://developer.ibm.com/sso/bmregistration) page in a separate tab. Fill in the form and click **Start your FREE Bluemix trial** to complete the registration. You will receive an activation mail in your inbox.
+Use Ctrl-click (or the equivalent action for your system) to open the [Sign Up for Bluemix](https://console.bluemix.net/registration/trial) page in a separate tab. Fill in the form and click **Start your FREE Bluemix trial** to complete the registration. You will receive an activation mail in your inbox.
 
 ### First time login
 
@@ -67,7 +67,7 @@ On the last page, click **I'm Ready** to complete the set up process.
 
 ### Create a space in Bluemix US region (if not already there)
 
-For the remainder of the lab it is **recommended** to work in the **US region** of Bluemix. For this, use Ctrl-click (or the equivalent for your system) to open the Bluemix dashboard. Click your account and choose **US South** as your active region.
+For the remainder of this lab we switch to the **US region** of Bluemix. For this, use Ctrl-click (or the equivalent for your system) to open the Bluemix dashboard. Click your account and choose **US South** as your active region.
 
 ![Select US region][5]
 
@@ -97,7 +97,7 @@ IBM Data Science Experience is an interactive, collaborative, cloud-based enviro
 
   ![Sign In](images/Picture2.png)
 
-  4. Follow the instructions to complete the sign up for IBM Data Science Experience. Please note that two Bluemix services will be created for you -- one Cloud Object Storage (SWIFT) and one Apache Spark. You should now see the Data Science Experience dashboard as shown below.
+  4. Follow the instructions to complete the sign up for IBM Data Science Experience. Note that two Bluemix services will be created for you -- a Cloud Object Storage service and an Apache Spark service. As soon as the 'Get Started' button is clickable, click it and you should be directed to the Data Science Experience dashboard as shown below.
 
   ![DSX dashboard][6]
 
@@ -162,7 +162,7 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
   4. Enter _Watson ML Integration_ as the project name and click **Create**.
 
-  5. On the right click on Browse to upload the data file you’ll use to create a predictive model.
+  5. On the right, in the Files section, click on Browse to upload the data file you’ll use to create a predictive model.
 
   ![Import Data][12]
 
@@ -278,7 +278,7 @@ In this part of the lab you’ll deploy the model you saved by running the Pytho
 
 ![Create Deployment Step 3][20]
 
-7. Restart the Node.js Web App. Return to your Bluemix Dashboard and select the restart icon to restart the web application.
+7. Restart the Node.js Web App. For this, return to your Bluemix Dashboard and select the restart icon to restart the web application.
 
 ![Restart WebApp][21]
 
