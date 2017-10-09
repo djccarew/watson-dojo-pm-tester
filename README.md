@@ -104,7 +104,7 @@ IBM Data Science Experience is an interactive, collaborative, cloud-based enviro
 # Step 2: Deploy the testing application
 In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
 
-  1. Click on the **Deploy to Bluemix** button below.
+  1. Use Ctrl-click on the **Deploy to Bluemix** button below to open the deployment process in a separate tab.
 
   [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/eciggaar/watson-dojo-pm-tester.git)
 
