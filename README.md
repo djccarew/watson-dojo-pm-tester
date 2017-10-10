@@ -166,15 +166,15 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
   ![Import Data][12]
 
-  6. On your laptop, browse to the location where you downloaded the file **patientdataV6.csv** in the section [Download patient data](#download-patient-data) of this lab. Select the file and click on Open or Choose (depending on your operating system).
+  6. On your laptop, browse to the location where you downloaded the file **patientdataV6.csv** in the section [Download patient data](#download-patient-data) of this lab. Select the file and click on Open (or the equivalent action for your operating system).
 
-  7. Once successfully uploaded, the file should appear in the Data Assets section.
+  7. Once successfully uploaded, the file should appear in the **Data Assets** section.
 
   ![Data Assets][13]
 
   8. Click on **Settings** for the project.
 
-  ![Settings][24]]
+  ![Settings][24]
 
   9. Click on add associated service and select **Machine Learning**.
 
@@ -194,7 +194,7 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
 In this part of the lab you’ll save the credentials for your Watson Machine Learning instance so you can use it later in your code.
 
-  1. In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to the Dashboard
+  1. In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to the Dashboard.
 
   2. Click on your Watson Machine Learning instance under **Services**.
 
@@ -237,7 +237,7 @@ In this part of the lab you will run the Jupyter Notebook code creating a predic
 
   ![Insert Credentials Step 2][30]
 
-  3. Your Object Storage credentials should now be in the cell. Ensure the variable is `credentials_1`.
+  3. Your Object Storage credentials should now be in the cell. Make sure to rename the variable to `credentials_1`.
 
   ![Insert Credentials Step 3](images/Picture25.png)
 
@@ -303,7 +303,7 @@ In this part of the lab you’ll test the deployed model with the Node.js applic
 
 6. Verify that the model predicts that there is not a risk of heart failure for the patient with these medical characteristics.
 
-![Score][35]]
+![Score][35]
 
 Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service in Bluemix :smiley:!!
 
