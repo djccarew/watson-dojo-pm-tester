@@ -142,7 +142,7 @@ In this part of the lab, you'll create an instance of the Watson Machine Learnin
 
   5. Click **Create**, followed by **Restage** when you’re prompted to restage your application.
 
-  ![Connect to Service][23]]
+  ![Connect to Service][23]
 
   6. Go back to the Bluemix dashboard and wait until the app shows that it is running again.
 
