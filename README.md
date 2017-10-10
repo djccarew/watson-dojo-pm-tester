@@ -160,7 +160,7 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
   ![Create New Project][11]
 
-  4. Enter _Watson ML Integration_ as the project name and click **Create**.
+  4. Enter _Watson ML Integration_ as the project name and click **Create**. Leave the other settings on their default value.
 
   5. On the right, in the Files section, click on Browse to upload the data file you’ll use to create a predictive model.
 
@@ -210,7 +210,7 @@ In this part of the lab you’ll save the credentials for your Watson Machine Le
 
 In this part of the lab you’ll create a Jupyter notebook and import the code to create a predictive model.
 
-  1. In the Data Science Experience browser tab click on **Overview** and then click **add notebooks**.
+  1. If you don't have your newly created Project open, first click **Projects -> View All Projects**, and then select your newly created project from Step 4. Next, in the Data Science Experience browser tab click on **Overview** and then click **add notebooks**.
 
   ![Add Notebook][15]
 
