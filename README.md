@@ -106,7 +106,7 @@ In this part of the lab you'll deploy the application that you will use later to
 
   1. Use Ctrl-click on the **Deploy to Bluemix** button below to open the deployment process in a separate tab.
 
-  [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/eciggaar/watson-dojo-pm-tester.git)
+  [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/justinmccoy/watson-dojo-pm-tester.git)
 
   2. Log in into Bluemix with your credentials by clicking on the **Log in** link at the top right.
 
@@ -216,7 +216,7 @@ In this part of the lab you’ll create a Jupyter notebook and import the code t
 
   2. Click on **From URL** and name the notebook _Apache Spark integration with Watson ML_.
 
-  3. Under **Notebook URL** provide the following url: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/demo1.ipynb.
+  3. Under **Notebook URL** provide the following url: https://github.com/justinmccoy/watson-dojo-pm-tester/blob/master/demo1.ipynb.
 
   ![Create Notebook][16]
 
@@ -314,40 +314,40 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 * Watson Data Platform: [https://www.ibm.com/analytics/us/en/watson-data-platform/](https://www.ibm.com/analytics/us/en/watson-data-platform/)
 
 
-[1]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/terms.png?raw=true
-[2]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-org.png?raw=true
-[3]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-space.png?raw=true
-[4]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-us-space.png?raw=true
-[5]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/select-region.png?raw=true
-[6]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/dsx-dashboard.png?raw=true
-[7]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/pipeline.png?raw=true
-[8]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-ml-instance.png?raw=true
-[9]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/connect-to.png?raw=true
-[10]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/overview-services-and-app.png?raw=true
-[11]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-project.png?raw=true
-[12]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/browse-file.png?raw=true
-[13]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/data-assets.png?raw=true
-[14]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/download-csv.png?raw=true
-[15]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/add-notebook.png?raw=true
-[16]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-notebook.png?raw=true
-[17]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/launch-dashboard.png?raw=true
-[18]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-deployment1.png?raw=true
-[19]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-deployment2.png?raw=true
-[20]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/create-deployment3.png?raw=true
-[21]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/toolchain.png?raw=true
-[22]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/deploy-stage.png?raw=true
-[23]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/restage-app.png?raw=true
-[24]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/settings.png?raw=true
-[25]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/add-associated-service.png?raw=true
-[26]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/choose-ml-service.png?raw=true
-[27]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/associated-services.png?raw=true
-[28]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/services-overview.png?raw=true
-[29]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/ml-credentials.png?raw=true
-[30]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/insert-credentials2.png?raw=true
-[31]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/run-notebook.png?raw=true
-[32]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/restart-app.png?raw=true
-[33]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/open-app.png?raw=true
-[34]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/failure-yes.png?raw=true
-[35]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/failure-no.png?raw=true
-[36]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/dsx-signup.png?raw=true
-[37]: https://github.com/eciggaar/watson-dojo-pm-tester/blob/master/images/use-existing-id.png?raw=true
+[1]: images/terms.png?raw=true
+[2]: images/create-org.png?raw=true
+[3]: images/create-space.png?raw=true
+[4]: images/create-us-space.png?raw=true
+[5]: images/select-region.png?raw=true
+[6]: images/dsx-dashboard.png?raw=true
+[7]: images/pipeline.png?raw=true
+[8]: images/create-ml-instance.png?raw=true
+[9]: images/connect-to.png?raw=true
+[10]: images/overview-services-and-app.png?raw=true
+[11]: images/create-project.png?raw=true
+[12]: images/browse-file.png?raw=true
+[13]: images/data-assets.png?raw=true
+[14]: images/download-csv.png?raw=true
+[15]: images/add-notebook.png?raw=true
+[16]: images/create-notebook.png?raw=true
+[17]: images/launch-dashboard.png?raw=true
+[18]: images/create-deployment1.png?raw=true
+[19]: images/create-deployment2.png?raw=true
+[20]: images/create-deployment3.png?raw=true
+[21]: images/toolchain.png?raw=true
+[22]: images/deploy-stage.png?raw=true
+[23]: images/restage-app.png?raw=true
+[24]: images/settings.png?raw=true
+[25]: images/add-associated-service.png?raw=true
+[26]: images/choose-ml-service.png?raw=true
+[27]: images/associated-services.png?raw=true
+[28]: images/services-overview.png?raw=true
+[29]: images/ml-credentials.png?raw=true
+[30]: images/insert-credentials2.png?raw=true
+[31]: images/run-notebook.png?raw=true
+[32]: images/restart-app.png?raw=true
+[33]: images/open-app.png?raw=true
+[34]: images/failure-yes.png?raw=true
+[35]: images/failure-no.png?raw=true
+[36]: images/dsx-signup.png?raw=true
+[37]: images/use-existing-id.png?raw=true
