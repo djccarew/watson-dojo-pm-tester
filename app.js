@@ -15,7 +15,7 @@ var port = (process.env.PORT || 3000);
 // this application. For details of its content, please refer to
 // the document or sample of each service.
 var env = { baseURL: '', accessKey: '' };
-var token = null;
+var token = { key: null, lastUpdated: 0 };
 var scoringHref = null;
 var services = JSON.parse(process.env.VCAP_SERVICES || "{}");
 var service = {};
@@ -38,22 +38,24 @@ if (credentials != null) {
 		};
 		request(options, function(err, res, body) {
 			if (err) {
-				console.log('Error  from GET to retrieve token ' + err);
+				console.log('****Error  from GET to retrieve token ' + err + '****');
 				return;
 			}
 			
-			token = body.token;
+			token.key = body.token;
+            token.lastUpdated = new Date();
+          
 			var opts = {
 			   url: env.baseURL + '/v3/wml_instances/' + env.instance_id + '/deployments',
 			   method: 'GET',
 			   headers: {
-				  Authorization: 'Bearer ' + token				  
+				  Authorization: 'Bearer ' + token.key				  
 			   },
 			   json:true
 			}
 			request(opts, function(err, res, body) {
 			   if (err) {
-			      console.log('Error  from GET to retrieve scoring href ' + err);
+			      console.log('****Error  from GET to retrieve scoring href ' + err + '****');
 				  return;
 			   }
 			   
@@ -62,12 +64,12 @@ if (credentials != null) {
 					   scoringHref = body.resources[i].entity.scoring_url;
 					   env.published_model_id = body.resources[i].entity.published_model.guid;
 					   env.deployment_id = body.resources[i].metadata.guid;
-					   console.log('Found Heart Failure Deployment Model');
+					   console.log('****Found Heart Failure Deployment Model****');
 					   break;
 				   }
 			   }
 			   if (!scoringHref) {
-				   console.log('Error: Did not find  Heart Failure Deployment Model');
+				   console.log('****Error: Did not find  Heart Failure Deployment Model****');
 			   }
 			});
 		});
@@ -101,38 +103,80 @@ router.get('/', function(req, res) {
 // Calls the PM Service instance 
 router.post('/', function(req, res) {
 	
-	if (!token || !scoringHref) {
+	if (!token.key || !scoringHref) {
 		res.status(503).send('Service unavailable');
 		return;
 	}
 	
-console.log('=== SCORE ===');
-console.log('  URI  : ' + scoringHref);
-console.log('  Input: ' + JSON.stringify(req.body.input));
-console.log(' ');
+    console.log('****=== SCORE ===');
+    console.log('****  URI  : ' + scoringHref);
+    console.log('****  Input: ' + JSON.stringify(req.body.input));
+    console.log('**** ');
 	try {
-		var opts = {
-			url: scoringHref,
-			method: "POST",
-			headers: {
-			   Authorization: 'Bearer ' + token				  
-			},
-			qs: { instance_id: env.instance_id, deployment_id: env.deployment_id, published_model_id: env.published_model_id },
-			json: req.body.input
-		};
-		request(opts, function(err, r, body) {
-			if (err) {			   	
-			   res.status(500).send(err);
-			}
-			else {
-				console.log('Reply from scoring ' + body);				
-                res.json(body);
-			}
+        var scoring_opts = {
+          url: scoringHref,
+          method: "POST",
+          headers: {
+	         Authorization: 'Bearer ' + token.key				  
+          },
+          qs: { instance_id: env.instance_id, deployment_id: env.deployment_id, published_model_id: env.published_model_id },
+          json: req.body.input
+        };
+        // See if token is close to expiring, get another one it if it is and
+        // then call scoring service
+        var token_age_mins = (new Date() - token.lastUpdated)/60000;
+        console.log('****Token age in minutes  =  ' + token_age_mins + ' ****');
+        if (token_age_mins > 28) {
+            var token_options = {
+			   url: env.baseURL + '/v3/identity/token',
+			   method: 'GET',
+			   auth: {
+ 				   user: credentials.username,
+				   password: credentials.password
+			   },
+			   json:true
+		    };
+            request(token_options, function(err, r, body) {
+               	if (err) {	
+                   console.log('****Error reply from token renewal ' + err + ' ****');	  
+			      res.status(500).send(err);
+			     }
+			     else { 
+                     token.key = body.token;
+                     token.lastUpdated = new Date();
+                     scoring_opts.headers.Authorization = 'Bearer ' + token.key;
+                     console.log('****Calling scoring  service - token renewed ****');
+		             request(scoring_opts, function(err, r, body) {
+		  	            if (err) {	
+                           console.log('****Error reply from scoring ****' + err);	    
+			               res.status(500).send(err);
+			            }
+			            else {
+				           console.log('****Reply from scoring ' + JSON.stringify(body) + ' ****');			
+                           res.json(body);
+			             }
 				
-		});
+		             });
+                 }
+            });
+        }
+        else { // token ok - just call scoring service   
+           console.log('****Calling scoring  service - token not renewed ****');
+		   request(scoring_opts, function(err, r, body) {
+			   if (err) {	
+                  console.log('****Error reply from scoring ' + err + ' ****');	
+			      res.status(500).send(err);
+			   }
+			   else {
+			   	   console.log('****Reply from scoring ' + JSON.stringify(body) + ' ****');				
+                   res.json(body);
+			   }
+				
+		   });
+        }
 
 	} catch (e) {
-		console.log('Score exception ' + JSON.stringify(e));
+		console.log('****Score exception ' + JSON.stringify(e) + ' ****');
 		var msg = '';
 		if (e instanceof String) {
 			msg = e;
@@ -148,7 +192,7 @@ console.log(' ');
 	
 	process.on('uncaughtException', function (err) {
     console.log(err);
-	}); 
+   }); 
 });
         
 // Register Service routes and SPA route ---------------
@@ -163,4 +207,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 // START THE SERVER with a little port reminder when run on the desktop
 // =============================================================================
 app.listen(port);
-console.log('App started on port ' + port);
+console.log('****App started on port ' + port + ' ****');
