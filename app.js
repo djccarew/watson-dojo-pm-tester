@@ -127,16 +127,12 @@ router.post('/', function(req, res) {
         var token_age_mins = (new Date() - token.lastUpdated)/60000;
         console.log('****Token age in minutes  =  ' + token_age_mins + ' ****');
         if (token_age_mins > 28) {
-            var token_options = {
+            var renew_token_options = {
 			   url: env.baseURL + '/v3/identity/token',
-			   method: 'GET',
-			   auth: {
- 				   user: credentials.username,
-				   password: credentials.password
-			   },
-			   json:true
+			   method: 'PUT',
+			   json: {token: token.key}
 		    };
-            request(token_options, function(err, r, body) {
+            request(renew_token_options, function(err, r, body) {
                	if (err) {	
                    console.log('****Error reply from token renewal ' + err + ' ****');	  
 			      res.status(500).send(err);
