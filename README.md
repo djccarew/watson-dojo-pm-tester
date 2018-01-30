@@ -97,18 +97,20 @@ IBM Data Science Experience is an interactive, collaborative, cloud-based enviro
 
   ![Sign In][37]
 
-  4. Follow the instructions to complete the sign up for IBM Data Science Experience. Note that two Bluemix services will be created for you -- a Cloud Object Storage service and an Apache Spark service. As soon as the 'Get Started' button is clickable, click it and you should be directed to the Data Science Experience dashboard as shown below.
+  4. Follow the instructions to complete the sign up for IBM Data Science Experience. Note that a new IBM Cloud service, _Data Science Experience_ will be created for you.
+  
 
-  ![DSX dashboard][6]
+  ![DSX dashboard][6]  
+  
 
 # Step 2: Deploy the testing application
 In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
 
-  1. Use Ctrl-click on the **Deploy to Bluemix** button below to open the deployment process in a separate tab.
+  1. Use Ctrl-click on the **Deploy to IBM Cloud** button below to open the deployment process in a separate tab.
 
-  [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/justinmccoy/watson-dojo-pm-tester.git)
+  [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/justinmccoy/watson-dojo-pm-tester.git)
 
-  2. Log in into Bluemix with your credentials by clicking on the **Log in** link at the top right.
+  2. Log in into IBM Cloud with your credentials by clicking on the **Log in** link at the top right.
 
   3. Make sure to deploy the application to the same region and space as where the *Apache Spark* and *Cloud Object Storage* services were created when you signed up for IBM Data Science Experience. Please take note of this space as later in this lab the Watson Machine Learning service needs to be deployed into the same space.
 
@@ -116,7 +118,7 @@ In this part of the lab you'll deploy the application that you will use later to
 
   ![Deploy][7]
 
-  5. A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to Bluemix. Click on the Delivery Pipeline tile to see the status of the deployment.
+  5. A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to IBM Cloud. Click on the Delivery Pipeline tile to see the status of the deployment.
 
   ![Toolchain][21]
 
@@ -134,41 +136,53 @@ In this part of the lab, you'll create an instance of the Watson Machine Learnin
 
   ![Watson ML Service][8]
 
-  3. In the **Connect to** drop-down, select the application that you deployed earlier in Step 2 of this lab.
-
-  ![Connect to Service][9]
-
   4. Verify this service is being created in the same space as the app in Step 2.
 
   5. Click **Create**, followed by **Restage** when you’re prompted to restage your application.
 
   ![Connect to Service][23]
+  
+  6. On the Watson ML Dashboard select **Connections** on left menu panel, and _Create Connection_.  Select the application that you deployed earlier in Step 2 of this lab connecting this Watson ML service to the Cloud Foundry application deployed.
 
-  6. Go back to the Bluemix dashboard and wait until the app shows that it is running again.
+  ![Connect to Service][9]
+  
+  ![Connect to App][41]
+
+  6. Go back to the IBM Cloud dashboard and wait until the app shows that it is running again.
 
   ![Overview DSX services and test app][10]
 
 ## Step 4: Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance
 
-In this part of the lab you will create a new project in IBM Data Science Experience and bind it to your instance of the Watson Machine Learning service.
+In this part of the lab you will create a new project in IBM Data Science Experience, and bind it to your instance of the Watson Machine Learning service.
 
   1. In a new browser tab go to [https://datascience.ibm.com](https://datascience.ibm.com).
 
   2. Click on **Sign In** at the top of the page.
 
-  3. From the dashboard, click on **Create new** from the top-right. From the drop-down menu select **Project**.
+  3. From the dashboard, click on **New Project** from the dashboard.
 
   ![Create New Project][11]
 
-  4. Enter _Watson ML Integration_ as the project name and click **Create**. Leave the other settings on their default value.
+  4. DSX projects depend on two services: Object Storage, and a Compute Engine.  If you don't already have Object Storage or a Compute Engine, you can create a new instance of each service while defining a new project.  The _New Project_ panel is easy to use, either select an existing service on the right, or create a new one.  In the example below services need to be created. 
 
-  5. On the right, in the Files section, click on Browse to upload the data file you’ll use to create a predictive model.
+  ![Create Services][38]
 
-  ![Import Data][12]
+ **Note:** Services created must be in the same region, and space, as your Data Science Experience service.
 
-  6. On your laptop, browse to the location where you downloaded the file **patientdataV6.csv** in the section [Download patient data](#download-patient-data) of this lab. Select the file and click on Open (or the equivalent action for your operating system).
+  5. Enter _Watson ML Integration_ as the project name and click **Create**. 
+  
+  6. From within the new project _Overview_ panel, click _Add to project_ on the top right, selecting _Data asset_. 
+  
+  ![Add to Project][39]
+  
+  A panel on the right of the screen appears, select _load_ and click on _Browse_ to upload the data file you'll use to create a predictive model.
 
-  7. Once successfully uploaded, the file should appear in the **Data Assets** section.
+  ![Add Data Asset][40]
+
+  7. On your laptop, browse to the location where you downloaded the file **patientdataV6.csv** in the section [Download patient data](#download-patient-data) of this lab. Select the file and click on Open (or the equivalent action for your operating system).
+
+  8. Once successfully uploaded, the file should appear in the **Data Assets** section.
 
   ![Data Assets][13]
 
@@ -184,12 +198,12 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
   ![Add Watson ML Service][26]
 
-  11. Click on your browser’s Back button and verify that the Watson Machine Learning service is now listed as one of your **Associated Services**.
+  11. The Watson Machine Learning service is now listed as one of your **Associated Services**.
 
   ![Associated Services][27]
 
   12. Leave the browser tab open for later.
-
+  
 ## Step 5: Save the credentials for your Watson Machine Learning Service
 
 In this part of the lab you’ll save the credentials for your Watson Machine Learning instance so you can use it later in your code.
@@ -324,7 +338,7 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [8]: images/create-ml-instance.png?raw=true
 [9]: images/connect-to.png?raw=true
 [10]: images/overview-services-and-app.png?raw=true
-[11]: images/create-project.png?raw=true
+[11]: images/new-project.png?raw=true
 [12]: images/browse-file.png?raw=true
 [13]: images/data-assets.png?raw=true
 [14]: images/download-csv.png?raw=true
@@ -351,3 +365,8 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [35]: images/failure-no.png?raw=true
 [36]: images/dsx-signup.png?raw=true
 [37]: images/use-existing-id.png?raw=true
+[38]: images/create-services.png?raw=true
+[39]: images/add-to-project.png?raw=true
+[40]: images/add-data-asset.png?raw=true
+[41]: images/connect-to-app.png?raw=true
+
