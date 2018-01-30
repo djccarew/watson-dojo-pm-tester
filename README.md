@@ -319,7 +319,7 @@ In this part of the lab you’ll test the deployed model with the Node.js applic
 
 ![Score][35]
 
-Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service in IBM Cloud :smiley:!!
+Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service on IBM Cloud :smiley:!!
 
 ## Additional links
 
