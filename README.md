@@ -1,11 +1,11 @@
-This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Bluemix](http://www.ng.bluemix.net/docs/#services/PredictiveModeling/index.html).
+This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Cloud](http://www.ng.bluemix.net/docs/#services/PredictiveModeling/index.html).
 This version of the app is to be used with the Data Science Experience Service to test a predictive model developed in the lab.
 
 See the [original app](https://github.com/pmservice/predictive-modeling-samples) for a walkthrough of the source code.
 
 
 
-# Lab - Create and deploy a scoring model to predict heart failure w/Bluemix and IBM Data Science Experience
+# Lab - Create and deploy a scoring model to predict heart failure w/IBM Cloud and IBM Data Science Experience
 
 © Copyright IBM Corporation 2017
 
@@ -17,7 +17,7 @@ The information contained in these materials is provided for informational purpo
 
 # Overview
 
-This lab is designed to demonstrate how to use IBM Data Science Experience to build a predictive model within a Jupyter Notebook. The predictive model is then deployed to the Watson Machine Learning Service in Bluemix where it is consumed by users accessing a Node.js application.
+This lab is designed to demonstrate how to use IBM Data Science Experience to build a predictive model within a Jupyter Notebook. The predictive model is then deployed to the Watson Machine Learning Service in IBM Cloud where it is consumed by users accessing a Node.js application.
 
 ![Flow](images/Picture35.png)
 
@@ -27,31 +27,31 @@ This lab is designed to demonstrate how to use IBM Data Science Experience to bu
 4. This lab is built around a Jupyter Notebook, this is where the developer will import data, train, and evaluate their model.
 5. Import data on heart failure.
 6. Trained models are deployed into production using IBM's Watson Machine Learning Service.
-7. A Node.js web app is deployed on Bluemix calling the predictive model hosted in the Watson Machine Learning Service.
+7. A Node.js web app is deployed on IBM Cloud calling the predictive model hosted in the Watson Machine Learning Service.
 8. A user visits the web app, enters their information, and the predictive model returns a response.
 
 
 ## Prerequisites
 
-* Bluemix supported [web browser](https://console.ng.bluemix.net/docs/overview/prereqs.html#prereqs)
-* An [IBM Bluemix Account](https://console.bluemix.net)
+* IBM Cloud supported [web browser](https://console.ng.bluemix.net/docs/overview/prereqs.html#prereqs)
+* An [IBM Cloud Account](https://console.bluemix.net)
 
 ## Before you begin
-To be able do this lab a Bluemix account is necessary. If you don't have one yet -- or you did not complete the initial set up of your Bluemix account -- follow the steps below.
+To be able do this lab a IBM Cloud account is necessary. If you don't have one yet -- or you did not complete the initial set up of your IBM Cloud account -- follow the steps below.
 
-Your account must have enough resources available for at least 1 application (128MB) and 4 services.
+Your account must have enough resources available for at least 1 application (128MB) and 6 services.
 
 ### Already registered and completed set-up
 
-When you already registered and completed the initial set-up of your Bluemix account, you directly jump to [Create a space in Bluemix US region](#create-a-space-in-bluemix-us-region).
+When you already registered and completed the initial set-up of your IBM Cloud account, you directly jump to [Create a space in Cloud US region](#create-a-space-in-cloud-us-region).
 
 ### Not registered
 
-Use Ctrl-click (or the equivalent action for your system) to open the [Sign Up for Bluemix](https://console.bluemix.net/registration/trial) page in a separate tab. Fill in the form and click **Start your FREE Bluemix trial** to complete the registration. You will receive an activation mail in your inbox.
+Use Ctrl-click (or the equivalent action for your system) to open the [Sign Up for IBM Cloud](https://console.bluemix.net/registration/trial) page in a separate tab. Fill in the form and click **Start your FREE IBM Cloud trial** to complete the registration. You will receive an activation mail in your inbox.
 
 ### First time login
 
-Use Ctrl-click (or the equivalent action for your system) to open the [Login to Bluemix](https://console.bluemix.net/login) in a separate tab. First time users need to complete a 4-step wizard. This starts by accepting the terms & conditions.
+Use Ctrl-click (or the equivalent action for your system) to open the [Login to IBM Cloud](https://console.bluemix.net/login) in a separate tab. First time users need to complete a 4-step wizard. This starts by accepting the terms & conditions.
 
   ![Terms & conditions][1]
 
@@ -65,9 +65,9 @@ Choose a name for your space. Typically `dev` would be a good name for your firs
 
 On the last page, click **I'm Ready** to complete the set up process.
 
-### Create a space in Bluemix US region
+### Create a space in IBM Cloud US region
 
-For the remainder of this lab we switch to the **US region** of Bluemix. For this, use Ctrl-click (or the equivalent for your system) to open the Bluemix dashboard. Click your account and choose **US South** as your active region.
+For the remainder of this lab we switch to the **US region** of IBM Cloud. For this, use Ctrl-click (or the equivalent for your system) to open the IBM Cloud dashboard. Click your account and choose **US South** as your active region.
 
 ![Select US region][5]
 
@@ -93,7 +93,7 @@ IBM Data Science Experience is an interactive, collaborative, cloud-based enviro
 
   ![Sign Up][36]
 
-  3. Click on **Sign in with your IBM id** and enter your Bluemix credentials.
+  3. Click on **Sign in with your IBM id** and enter your IBM Cloud credentials.
 
   ![Sign In][37]
 
@@ -130,7 +130,7 @@ In this part of the lab you'll deploy the application that you will use later to
 
 In this part of the lab, you'll create an instance of the Watson Machine Learning service and bind it to the application that you created in Step 2.
 
-  1. In your browser go to the Bluemix Dashboard and click **Catalog**.
+  1. In your browser go to the IBM Cloud Dashboard and click **Catalog**.
 
   2. In the navigation menu at the left, select **Data  & Analytics** (under **Platform**) and then select **Machine Learning**.
 
@@ -292,7 +292,7 @@ In this part of the lab you’ll deploy the model you saved by running the Pytho
 
 ![Create Deployment Step 3][20]
 
-7. Restart the Node.js Web App. For this, return to your Bluemix Dashboard and select the restart icon to restart the web application.
+7. Restart the Node.js Web App. For this, return to your IBM Cloud Dashboard and select the restart icon to restart the web application.
 
 ![Restart WebApp][32]
 
@@ -319,7 +319,7 @@ In this part of the lab you’ll test the deployed model with the Node.js applic
 
 ![Score][35]
 
-Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service in Bluemix :smiley:!!
+Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service in IBM Cloud :smiley:!!
 
 ## Additional links
 
