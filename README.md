@@ -5,9 +5,9 @@ See the [original app](https://github.com/pmservice/predictive-modeling-samples)
 
 
 
-# Lab - Create and deploy a scoring model to predict heart failure w/IBM Cloud and IBM Data Science Experience
+# Lab - Create and deploy a scoring model to predict heart failure on IBM's Cloud with the Watson Data Platform
 
-© Copyright IBM Corporation 2017
+© Copyright IBM Corporation 2018
 
 IBM, the IBM logo and ibm.com are trademarks of International Business Machines Corp., registered in many jurisdictions worldwide. Other product and service names might be trademarks of IBM or other companies. A current list of IBM trademarks is available on the Web at &quot;Copyright and trademark information&quot; at www.ibm.com/legal/copytrade.shtml.
 
