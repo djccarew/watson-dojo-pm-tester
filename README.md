@@ -245,15 +245,15 @@ In this part of the lab you will run the Jupyter Notebook code creating a predic
 
   1. Place your cursor in the first code block in the notebook.
 
-  ![Insert Credentials Step 1](images/Picture23.png)
+  ![Insert Spark Data Frame Step 1](images/Picture23.png)
 
-  2. Click on the **Find and Add** data icon -- see step 1 in diagram below -- and then select **Insert to code** under the file **patientdataV6.csv**. This is step 2 in diagram below. Finally select **Insert Credentials** -- which is step 3 in diagram below.
+  2. Click on the **Find and Add** data icon -- see step 1 in diagram below -- and then select **Insert to code** under the file **patientdataV6.csv**. This is step 2 in diagram below. Finally select **Insert Spark Data Frame** -- which is step 3 in diagram below.
 
-  ![Insert Credentials Step 2][30]
+  ![Insert Spark Data Frame Step 2][30]
 
-  3. Your Object Storage credentials should now be in the cell. Make sure to rename the variable to `credentials_1`.
+  3. You now can load data from Object Storage into a Spark Data Frame. Make sure to rename the variable to `df_data` and add `.option('inferSchema','True')\`.
 
-  ![Insert Credentials Step 3](images/Picture25.png)
+  ![Insert Spark Data Frame Step 3](images/Picture25.png)
 
   4. Click on the **Run** icon to run the code in the cell.
 
