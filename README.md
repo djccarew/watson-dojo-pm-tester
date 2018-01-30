@@ -47,7 +47,7 @@ When you already registered and completed the initial set-up of your IBM Cloud a
 
 ### Not registered
 
-Use Ctrl-click (or the equivalent action for your system) to open the [Sign Up for IBM Cloud](https://console.bluemix.net/registration/trial) page in a separate tab. Fill in the form and click **Start your FREE IBM Cloud trial** to complete the registration. You will receive an activation mail in your inbox.
+Use Ctrl-click (or the equivalent action for your system) to open the [Sign Up for IBM Cloud](https://console.bluemix.net/registration/) page in a separate tab. Fill in the form and click **Create Account** to complete the registration and free access to IBM's Cloud. You will receive an activation mail in your inbox.
 
 ### First time login
 
