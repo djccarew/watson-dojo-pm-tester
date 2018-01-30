@@ -152,7 +152,22 @@ In this part of the lab, you'll create an instance of the Watson Machine Learnin
 
   ![Overview DSX services and test app][10]
 
-## Step 4: Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance
+## Step 4: Create an instance of the Data Science Experience Service
+In this part of the lab, you'll create an instance of the Data Science Experience service enabling usage of notebooks on the Watson Data Platform through DSX.
+
+  1. In your browser go to the IBM Cloud Dashboard and click **Catalog**.
+
+  2. In the navigation menu at the left, select **Data  & Analytics** (under **Platform**) and then select **Data Science Experience**.
+
+  ![DSX Service][42]
+
+  4. Verify this service is being created in the same space as the app in Step 2.
+
+  ![DSX Create][43]
+  
+  5. Click **Create**
+  
+## Step 5: Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance
 
 In this part of the lab you will create a new project in IBM Data Science Experience, and bind it to your instance of the Watson Machine Learning service.
 
@@ -204,7 +219,7 @@ In this part of the lab you will create a new project in IBM Data Science Experi
 
   12. Leave the browser tab open for later.
   
-## Step 5: Save the credentials for your Watson Machine Learning Service
+## Step 6: Save the credentials for your Watson Machine Learning Service
 
 In this part of the lab you’ll save the credentials for your Watson Machine Learning instance so you can use it later in your code.
 
@@ -220,7 +235,7 @@ In this part of the lab you’ll save the credentials for your Watson Machine Le
 
   4. Save the username and password to a text file on your machine. You’ll need this information later in your Jupyter notebook.
 
-## Step 6: Create a notebook in IBM Data Science Experience
+## Step 7: Create a notebook in IBM Data Science Experience
 
 In this part of the lab you’ll create a Jupyter notebook and import the code to create a predictive model.
 
@@ -239,7 +254,7 @@ In this part of the lab you’ll create a Jupyter notebook and import the code t
   5. Leave your browser tab open for the next part.
 
 
-## Step 7: Run the notebook in IBM Data Science Experience
+## Step 8: Run the notebook in IBM Data Science Experience
 
 In this part of the lab you will run the Jupyter Notebook code creating a predictive model, and save it in the Watson Machine Learning Service.
 
@@ -268,7 +283,7 @@ In this part of the lab you will run the Jupyter Notebook code creating a predic
 
   7. Continue running each cell until you finish the entire notebook.
 
-## Step 8: Deploy the saved predictive model as a scoring service
+## Step 9: Deploy the saved predictive model as a scoring service
 
 In this part of the lab you’ll deploy the model you saved by running the Python notebook as a scoring service in Watson Machine Learning.
 
@@ -297,7 +312,7 @@ In this part of the lab you’ll deploy the model you saved by running the Pytho
 ![Restart WebApp][32]
 
 
-## Step 9: Test the deployed Model
+## Step 10: Test the deployed Model
 
 In this part of the lab you’ll test the deployed model with the Node.js application that you deployed earlier.
 
@@ -369,4 +384,7 @@ Congratulations, you successfully created a predictive model in Apache Spark and
 [39]: images/add-to-project.png?raw=true
 [40]: images/add-data-asset.png?raw=true
 [41]: images/connect-to-app.png?raw=true
+[42]: images/dsx-service.png?raw=true
+[43]: images/dsx-create.png?raw=true
+
 
