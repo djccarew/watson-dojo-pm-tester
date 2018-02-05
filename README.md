@@ -138,13 +138,15 @@ In this part of the lab, you'll create an instance of the Watson Machine Learnin
 
   4. Verify this service is being created in the same space as the app in Step 2.
 
-  5. Click **Create**, followed by **Restage** when you’re prompted to restage your application.
-
-  ![Connect to Service][23]
+  5. Click **Create**.
   
   6. On the Watson ML Dashboard select **Connections** on left menu panel, and _Create Connection_.  Select the application that you deployed earlier in Step 2 of this lab connecting this Watson ML service to the Cloud Foundry application deployed.
 
   ![Connect to Service][9]
+  
+  6. Click **Restage** when you’re prompted to restage your application.
+  
+  ![Connect to Service][23]
   
   ![Connect to App][41]
 
