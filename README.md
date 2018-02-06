@@ -183,7 +183,7 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
   ![](doc/source/images/ml-credentials.png?raw=true)
 
-* Save the username and password to a text file on your machine. You’ll need this information later in your Jupyter notebook.
+* Save the username, password and instance_id to a text file on your machine. You’ll need this information later in your Jupyter notebook.
 
 ### 6. Create a notebook in IBM Data Science Experience
 
