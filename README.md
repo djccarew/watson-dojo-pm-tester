@@ -1,26 +1,20 @@
-This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Cloud](http://www.ng.bluemix.net/docs/#services/PredictiveModeling/index.html).
-This version of the app is to be used with the Data Science Experience Service to test a predictive model developed in the lab.
+DISCLAIMER: This application is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review.
 
+#  Create and deploy a scoring model to predict heart failure on IBM Cloud with the Watson Data Platform
+
+In this Code Pattern, we will use a Jupyter Notebook on IBM Data Science Experience to build a predictive model that demonstrates a potential health care use case.
+This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Cloud](http://www.ng.bluemix.net/docs/#services/PredictiveModeling/index.html).
 See the [original app](https://github.com/pmservice/predictive-modeling-samples) for a walkthrough of the source code.
 
+When the reader has completed this Code Pattern, they will understand how to:
 
+* Build a predictive model within a Jupyter Notebook
+* Deploy the model to IBM Watson Machine Learning service
+* Access the Machine Learning model via either APIs or a Nodejs app
 
-# Lab - Create and deploy a scoring model to predict heart failure on IBM's Cloud with the Watson Data Platform
+![](doc/source/images/Picture35.png)
 
-© Copyright IBM Corporation 2018
-
-IBM, the IBM logo and ibm.com are trademarks of International Business Machines Corp., registered in many jurisdictions worldwide. Other product and service names might be trademarks of IBM or other companies. A current list of IBM trademarks is available on the Web at &quot;Copyright and trademark information&quot; at www.ibm.com/legal/copytrade.shtml.
-
-This document is current as of the initial date of publication and may be changed by IBM at any time.
-
-The information contained in these materials is provided for informational purposes only, and is provided AS IS without warranty of any kind, express or implied. IBM shall not be responsible for any damages arising out of the use of, or otherwise related to, these materials. Nothing contained in these materials is intended to, nor shall have the effect of, creating any warranties or representations from IBM or its suppliers or licensors, or altering the terms and conditions of the applicable license agreement governing the use of IBM software. References in these materials to IBM products, programs, or services do not imply that they will be available in all countries in which IBM operates. This information is based on current IBM product plans and strategy, which are subject to change by IBM without notice. Product release dates and/or capabilities referenced in these materials may change at any time at IBM&#39;s sole discretion based on market opportunities or other factors, and are not intended to be a commitment to future product or feature availability in any way.
-
-# Overview
-
-This lab is designed to demonstrate how to use IBM Data Science Experience to build a predictive model within a Jupyter Notebook. The predictive model is then deployed to the Watson Machine Learning Service in IBM Cloud where it is consumed by users accessing a Node.js application.
-
-![Flow](images/Picture35.png)
-
+## Flow
 1. The developer creates an IBM Data Science Experience Workspace.
 2. IBM Data Science Experience depends on an Apache Spark service.
 3. IBM Data Science Experience uses Cloud Object storage to manage your data.
@@ -30,363 +24,338 @@ This lab is designed to demonstrate how to use IBM Data Science Experience to bu
 7. A Node.js web app is deployed on IBM Cloud calling the predictive model hosted in the Watson Machine Learning Service.
 8. A user visits the web app, enters their information, and the predictive model returns a response.
 
+## Included components
+* [IBM Data Science Experience](https://www.ibm.com/bs-en/marketplace/data-science-experience): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
+* [Jupyter Notebook](http://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
+* [PixieDust](https://github.com/ibm-watson-data-lab/pixiedust): Provides a Python helper library for IPython Notebook.
+
+## Featured technologies
+* [Artificial Intelligence](https://medium.com/ibm-data-science-experience): Artificial intelligence can be applied to disparate solution spaces to deliver disruptive technologies.
+* [Data Science](https://medium.com/ibm-data-science-experience/): Systems and scientific methods to analyze structured and unstructured data in order to extract knowledge and insights.
+* [Node.js](https://nodejs.org/): An open-source JavaScript run-time environment for executing server-side JavaScript code.
+
+# Watch the Video
+TBD
+
+# Steps
+
+
+1. [Deploy the testing application](#1-deploy-the-testing-application)
+2. [Create an instance of the Watson Machine Learning Service](#2-create-an-instance-of-the-watson-machine-learning-service)
+3. [Create an instance of the Data Science Experience Service](#3-create-an-instance-of-the-data-science-experience-service)
+4. [Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance](#4-create-a-project-in-ibm-data-science-experience-and-bind-it-to-your-watson-machine-learning-service-instance)
+5. [Save the credentials for your Watson Machine Learning Service](#5-save-the-credentials-for-your-watson-machine-learning-service)
+6. [Create a notebook in IBM Data Science Experience](#6-create-a-notebook-in-ibm-data-science-experience)
+7. [Run the notebook in IBM Data Science Experience](#7-run-the-notebook-in-ibm-data-science-experience)
+8. [Deploy the saved predictive model as a scoring service](#8-deploy-the-saved-predictive-model-as-a-scoring-service)
+
 
 ## Prerequisites
 
-* IBM Cloud supported [web browser](https://console.ng.bluemix.net/docs/overview/prereqs.html#prereqs)
 * An [IBM Cloud Account](https://console.bluemix.net)
 
-## Before you begin
-To be able do this lab a IBM Cloud account is necessary. If you don't have one yet -- or you did not complete the initial set up of your IBM Cloud account -- follow the steps below.
+* An account on [IBM Data Science Experience] (https://datascience.ibm.com).
 
-Your account must have enough resources available for at least 1 application (128MB) and 6 services.
+* A space in IBM Cloud US South or United Kingdom regions.
 
-### Already registered and completed set-up
+As of 2/5/2018, the Machine Learning service on IBM Cloud is only available in the US South or United Kingdom regions.
 
-When you already registered and completed the initial set-up of your IBM Cloud account, you directly jump to [Create a space in Cloud US region](#create-a-space-in-cloud-us-region).
+### 1. Deploy the testing application
 
-### Not registered
+Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment process in a separate tab.
 
-Use Ctrl-click (or the equivalent action for your system) to open the [Sign Up for IBM Cloud](https://console.bluemix.net/registration/) page in a separate tab. Fill in the form and click **Create Account** to complete the registration and free access to IBM's Cloud. You will receive an activation mail in your inbox.
+  [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/predictive-model-on-watson-ml)
 
-### First time login
+> Note:  Make sure to deploy the application to the same region and space as where the *Apache Spark* and *Cloud Object Storage* services were created when you signed up for IBM Data Science Experience. Please take note of this space as later in this lab the Watson Machine Learning service needs to be deployed into the same space.
 
-Use Ctrl-click (or the equivalent action for your system) to open the [Login to IBM Cloud](https://console.bluemix.net/login) in a separate tab. First time users need to complete a 4-step wizard. This starts by accepting the terms & conditions.
+* Click on `Deploy` to deploy the application.
 
-  ![Terms & conditions][1]
+  ![](doc/source/images/pipeline.png?raw=true
+)
 
-Define a name for your organization.
+* A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to IBM Cloud. Click on the Delivery Pipeline tile to see the status of the deployment.
 
-  ![Organization name][2]
+  ![](doc/source/images/toolchain.png?raw=true)
 
-Choose a name for your space. Typically `dev` would be a good name for your first space.
+* Wait for the **Deploy Stage** to complete successfully.
 
-  ![Space name][3]
+  ![](doc/source/images/deploy-stage.png?raw=true)
 
-On the last page, click **I'm Ready** to complete the set up process.
+### 2. Create an instance of the Watson Machine Learning Service
 
-### Create a space in IBM Cloud US region
+* In your browser go to the [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/apps) and click `Catalog`.
 
-For the remainder of this lab we switch to the **US region** of IBM Cloud. For this, use Ctrl-click (or the equivalent for your system) to open the IBM Cloud dashboard. Click your account and choose **US South** as your active region.
+* In the navigation menu at the left, select `Data  & Analytics` (under `Platform`) and then select `Machine Learning`.
 
-![Select US region][5]
+  ![](doc/source/images/create-ml-instance.png?raw=true)
 
-If you are all OK, you get the dashboard. Otherwise, you will be asked to create your first space in this region -- as depicted in the screenshot below. Typically `dev` would be a good name for your space.
+* Verify this service is being created in the same space as the app in Step 1.
 
-![Create space in US][4]
+* Click `Create`.
 
-### Download the sample patient data
+* On the Watson ML Dashboard select `Connections` on left menu panel, and `Create Connection`.  Select the application that you deployed earlier in Step 1 of this lab connecting this Watson ML service to the Cloud Foundry application deployed.
 
-Use Ctrl-click (or the equivalent action for your system) to open the <a href="https://ibm.box.com/v/patientdataV6" target=download>patientdataV6.csv</a> CSV file in a separate tab. Click **Download** to download this file to your own device.
+  ![](doc/source/images/connect-to.png?raw=true)
 
-  ![Download CSV][14]
+* Click `Restage` when you’re prompted to restage your application.
 
-Congrats, you're now ready to start your data science experience :smiley:!!
+  ![](doc/source/images/restage-app.png?raw=true)
 
-# Step 1: Sign up for IBM Data Science Experience
+  ![](doc/source/images/connect-to-app.png?raw=true)
 
-IBM Data Science Experience is an interactive, collaborative, cloud-based environment where data scientists can use multiple tools to activate their insights. In this part of the lab you will sign up for a 30-day trial of IBM Data Science Experience.
+* Go back to the IBM Cloud dashboard and wait until the app shows that it is running again.
 
-  1.  In a web browser navigate to [https://datascience.ibm.com](https://datascience.ibm.com).
+  ![](doc/source/images/overview-services-and-app.png?raw=true)
 
-  2.  Click on **Sign Up** at the top right.
+### 3. Create an instance of the Data Science Experience Service
 
-  ![Sign Up][36]
+* In your browser go to the IBM Cloud Dashboard and click `Catalog`.
 
-  3. Click on **Sign in with your IBM id** and enter your IBM Cloud credentials.
+* In the navigation menu at the left, select `Data  & Analytics` (under `Platform`) and then select `Data Science Experience`.
 
-  ![Sign In][37]
+  ![](doc/source/images/dsx-service.png?raw=true)
 
-  4. Follow the instructions to complete the sign up for IBM Data Science Experience. Note that a new IBM Cloud service, _Data Science Experience_ will be created for you.
-  
+* Verify this service is being created in the same space as the app in Step 2.
 
-  ![DSX dashboard][6]  
-  
+  ![](doc/source/images/dsx-create.png?raw=true)
 
-# Step 2: Deploy the testing application
-In this part of the lab you'll deploy the application that you will use later to test the predictive model that you create.
+* Click `Create`
 
-  1. Use Ctrl-click on the **Deploy to IBM Cloud** button below to open the deployment process in a separate tab.
+### 4. Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance
 
-  [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/justinmccoy/watson-dojo-pm-tester.git)
+* In a new browser tab go to [https://datascience.ibm.com](https://datascience.ibm.com).
 
-  2. Log in into IBM Cloud with your credentials by clicking on the **Log in** link at the top right.
+* Click on `Sign In` at the top of the page.
 
-  3. Make sure to deploy the application to the same region and space as where the *Apache Spark* and *Cloud Object Storage* services were created when you signed up for IBM Data Science Experience. Please take note of this space as later in this lab the Watson Machine Learning service needs to be deployed into the same space.
+* From the dashboard, click on `New Project` from the dashboard.
 
-  4. Click on **Deploy** to deploy the application.
+  ![](doc/source/images/new-project.png?raw=true)
 
-  ![Deploy][7]
+* DSX projects depend on two services: Object Storage, and a Compute Engine.  If you don't already have Object Storage or a Compute Engine, you can create a new instance of each service while defining a new project.  The _New Project_ panel is easy to use, either select an existing service on the right, or create a new one.  In the example below services need to be created.
 
-  5. A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to IBM Cloud. Click on the Delivery Pipeline tile to see the status of the deployment.
+  ![](doc/source/images/create-services.png?raw=true)
 
-  ![Toolchain][21]
+> Note: Services created must be in the same region, and space, as your Data Science Experience service.
 
-  6. Wait for the **Deploy Stage** to complete successfully.
+* Enter _Watson ML Integration_ as the project name and click `Create`.
 
-  ![Deploy Stage][22]
+* From within the new project `Overview` panel, click `Add to project` on the top right, selecting `Data asset`.
 
-# Step 3: Create an instance of the Watson Machine Learning Service
+  ![](doc/source/images/add-to-project.png?raw=true)
 
-In this part of the lab, you'll create an instance of the Watson Machine Learning service and bind it to the application that you created in Step 2.
+  A panel on the right of the screen appears, select `load` and click on `Browse` to upload the data file you'll use to create a predictive model.
 
-  1. In your browser go to the IBM Cloud Dashboard and click **Catalog**.
+  ![](doc/source/images/add-data-asset.png?raw=true)
 
-  2. In the navigation menu at the left, select **Data  & Analytics** (under **Platform**) and then select **Machine Learning**.
+* On your machine, browse to the location of the file **patientdataV6.csv** in this repository in the **data/** directory. Select the file and click on Open (or the equivalent action for your operating system).
 
-  ![Watson ML Service][8]
+* Once successfully uploaded, the file should appear in the `Data Assets` section.
 
-  4. Verify this service is being created in the same space as the app in Step 2.
+  ![](doc/source/images/data-assets.png?raw=true)
 
-  5. Click **Create**.
-  
-  6. On the Watson ML Dashboard select **Connections** on left menu panel, and _Create Connection_.  Select the application that you deployed earlier in Step 2 of this lab connecting this Watson ML service to the Cloud Foundry application deployed.
+* Click on `Settings` for the project.
 
-  ![Connect to Service][9]
-  
-  6. Click **Restage** when you’re prompted to restage your application.
-  
-  ![Connect to Service][23]
-  
-  ![Connect to App][41]
+  ![](doc/source/images/settings.png?raw=true)
 
-  6. Go back to the IBM Cloud dashboard and wait until the app shows that it is running again.
+* Click on add associated service and select `Machine Learning`.
 
-  ![Overview DSX services and test app][10]
+  ![](doc/source/images/add-associated-service.png?raw=true)
 
-## Step 4: Create an instance of the Data Science Experience Service
-In this part of the lab, you'll create an instance of the Data Science Experience service enabling usage of notebooks on the Watson Data Platform through DSX.
+* Choose your existing Machine Learning instance and click on `Select`.
 
-  1. In your browser go to the IBM Cloud Dashboard and click **Catalog**.
+  ![](doc/source/images/choose-ml-service.png?raw=true)
 
-  2. In the navigation menu at the left, select **Data  & Analytics** (under **Platform**) and then select **Data Science Experience**.
+* The Watson Machine Learning service is now listed as one of your `Associated Services`.
 
-  ![DSX Service][42]
+  ![](doc/source/images/associated-services.png?raw=true)
 
-  4. Verify this service is being created in the same space as the app in Step 2.
+* Leave the browser tab open for later.
 
-  ![DSX Create][43]
-  
-  5. Click **Create**
-  
-## Step 5: Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance
+### 5. Save the credentials for your Watson Machine Learning Service
 
-In this part of the lab you will create a new project in IBM Data Science Experience, and bind it to your instance of the Watson Machine Learning service.
+* In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to the Dashboard.
 
-  1. In a new browser tab go to [https://datascience.ibm.com](https://datascience.ibm.com).
+* Click on your Watson Machine Learning instance under `Services`.
 
-  2. Click on **Sign In** at the top of the page.
+  ![](doc/source/images/services-overview.png?raw=true)
 
-  3. From the dashboard, click on **New Project** from the dashboard.
+* Click on `Service credentials` and then on `View credentials` to see the credentials.
 
-  ![Create New Project][11]
+  ![](doc/source/images/ml-credentials.png?raw=true)
 
-  4. DSX projects depend on two services: Object Storage, and a Compute Engine.  If you don't already have Object Storage or a Compute Engine, you can create a new instance of each service while defining a new project.  The _New Project_ panel is easy to use, either select an existing service on the right, or create a new one.  In the example below services need to be created. 
+* Save the username and password to a text file on your machine. You’ll need this information later in your Jupyter notebook.
 
-  ![Create Services][38]
+### 6. Create a notebook in IBM Data Science Experience
 
- **Note:** Services created must be in the same region, and space, as your Data Science Experience service.
+* If you don't have your newly created Project open, first click `Projects` -> `View All Projects`, and then select your newly created project from Step 4. Next, in the Data Science Experience browser tab click on `Overview` and then click `add notebooks`.
 
-  5. Enter _Watson ML Integration_ as the project name and click **Create**. 
-  
-  6. From within the new project _Overview_ panel, click _Add to project_ on the top right, selecting _Data asset_. 
-  
-  ![Add to Project][39]
-  
-  A panel on the right of the screen appears, select _load_ and click on _Browse_ to upload the data file you'll use to create a predictive model.
+  ![](doc/source/images/add-notebook.png?raw=true)
 
-  ![Add Data Asset][40]
+* Click on `From URL` and name the notebook _Apache Spark integration with Watson ML_.
 
-  7. On your laptop, browse to the location where you downloaded the file **patientdataV6.csv** in the section [Download patient data](#download-patient-data) of this lab. Select the file and click on Open (or the equivalent action for your operating system).
+* Under `Notebook URL` provide the following url: https://github.com/IBM/predictive-model-on-watson-ml/blob/master/demo1.ipynb
 
-  8. Once successfully uploaded, the file should appear in the **Data Assets** section.
+  ![](doc/source/images/create-notebook.png?raw=true)
 
-  ![Data Assets][13]
+* Click `Create Notebook` to create the new notebook.
 
-  8. Click on **Settings** for the project.
+### 7. Run the notebook in IBM Data Science Experience
 
-  ![Settings][24]
+* Place your cursor in the first code block in the notebook.
 
-  9. Click on add associated service and select **Machine Learning**.
+  ![Insert Spark Data Frame Step 1](doc/source/images/Picture23.png)
 
-  ![Associate Service][25]
+* Click on the `Find and Add` data icon -- see step 1 in diagram below -- and then select `Insert to code` under the file **patientdataV6.csv**. This is step 2 in diagram below. Finally select `Insert Spark Data Frame` -- which is step 3 in diagram below.
 
-  10. Choose your existing Machine Learning instance and click on **Select**.
+  ![](doc/source/images/insert-credentials2.png?raw=true)
 
-  ![Add Watson ML Service][26]
+> Note:  Make sure to rename the variable to `df_data` and add `.option('inferSchema','True')\`.
 
-  11. The Watson Machine Learning service is now listed as one of your **Associated Services**.
+  ![Insert Spark Data Frame Step 3](doc/source/images/Picture25.png)
 
-  ![Associated Services][27]
+* Click on the `Run` icon to run the code in the cell.
 
-  12. Leave the browser tab open for later.
-  
-## Step 6: Save the credentials for your Watson Machine Learning Service
+  ![](doc/source/images/run-notebook.png?raw=true)
 
-In this part of the lab you’ll save the credentials for your Watson Machine Learning instance so you can use it later in your code.
-
-  1. In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to the Dashboard.
-
-  2. Click on your Watson Machine Learning instance under **Services**.
-
-  ![Save Credentials][28]
-
-  3. Click on **Service credentials** and then on **View credentials** to see the credentials.
-
-  ![View Credentials][29]
-
-  4. Save the username and password to a text file on your machine. You’ll need this information later in your Jupyter notebook.
-
-## Step 7: Create a notebook in IBM Data Science Experience
-
-In this part of the lab you’ll create a Jupyter notebook and import the code to create a predictive model.
-
-  1. If you don't have your newly created Project open, first click **Projects -> View All Projects**, and then select your newly created project from Step 4. Next, in the Data Science Experience browser tab click on **Overview** and then click **add notebooks**.
-
-  ![Add Notebook][15]
-
-  2. Click on **From URL** and name the notebook _Apache Spark integration with Watson ML_.
-
-  3. Under **Notebook URL** provide the following url: https://github.com/justinmccoy/watson-dojo-pm-tester/blob/master/demo1.ipynb.
-
-  ![Create Notebook][16]
-
-  4. Click **Create Notebook** to create the new notebook.
-
-  5. Leave your browser tab open for the next part.
-
-
-## Step 8: Run the notebook in IBM Data Science Experience
-
-In this part of the lab you will run the Jupyter Notebook code creating a predictive model, and save it in the Watson Machine Learning Service.
-
-  1. Place your cursor in the first code block in the notebook.
-
-  ![Insert Spark Data Frame Step 1](images/Picture23.png)
-
-  2. Click on the **Find and Add** data icon -- see step 1 in diagram below -- and then select **Insert to code** under the file **patientdataV6.csv**. This is step 2 in diagram below. Finally select **Insert Spark Data Frame** -- which is step 3 in diagram below.
-
-  ![Insert Spark Data Frame Step 2][30]
-
-  3. You now can load data from Object Storage into a Spark Data Frame. Make sure to rename the variable to `df_data` and add `.option('inferSchema','True')\`.
-
-  ![Insert Spark Data Frame Step 3](images/Picture25.png)
-
-  4. Click on the **Run** icon to run the code in the cell.
-
-  ![Run Notebook][31]
-
-  5. Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
+* Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
   Do **not** continue to the next cell until the code is finished running.
 
-  6. When you get to the cell that says **Stop here !!!!** insert the username and password that you saved from your Watson Machine Learning instance into the code before running it.
+* When you get to the cell that says `Stop here !!!!` insert the username and password that you saved from your Watson Machine Learning instance into the code before running it.
 
-  ![Run Notebook](images/Picture27.png)
+  ![Run Notebook](doc/source/images/Picture27.png)
 
-  7. Continue running each cell until you finish the entire notebook.
+* Continue running each cell until you finish the entire notebook.
 
-## Step 9: Deploy the saved predictive model as a scoring service
+### 8. Deploy the saved predictive model as a scoring service
 
-In this part of the lab you’ll deploy the model you saved by running the Python notebook as a scoring service in Watson Machine Learning.
+* In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to your dashboard.
 
-1. In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to your dashboard.
+* Click on the entry for your Watson Machine Learning service under `Services`.
 
-2. Click on the entry for your Watson Machine Learning service under **Services**.
+* Click `Manage` and then click on the `Launch Dashboard` button in the Watson Machine Learning tile.
 
-3. Click **Manage** and then click on the **Launch Dashboard** button in the Watson Machine Learning tile.
+![](doc/source/images/launch-dashboard.png?raw=true)
 
-![Launch Dashboard][17]
+* Your saved model should appear. Under `Actions` select `Create Deployment`.
 
-4. Your saved model should appear. Under **Actions** select **Create Deployment**.
+![](doc/source/images/create-deployment1.png?raw=true)
 
-![Create Deployment Step 1][18]
+* Name the deployment _Heart Failure Prediction Model Deployment_ and click `Save`. Keep the type of deployment set to the default value 'Online'.
 
-5. Name the deployment _Heart Failure Prediction Model Deployment_ and click **Save**. Keep the type of deployment set to the default value 'Online'.
+![](doc/source/images/create-deployment2.png?raw=true)
 
-![Create Deployment Step 2][19]
+* Your model should now be deployed and visible as a Deployment with status 'ACTIVE'.
 
-6. Your model should now be deployed and visible as a Deployment with status 'ACTIVE'.
+![](doc/source/images/create-deployment3.png?raw=true)
 
-![Create Deployment Step 3][20]
+* Restart the Node.js Web App. For this, return to your IBM Cloud Dashboard and select the restart icon to restart the web application.
 
-7. Restart the Node.js Web App. For this, return to your IBM Cloud Dashboard and select the restart icon to restart the web application.
+![](doc/source/images/restart-app.png?raw=true)
 
-![Restart WebApp][32]
+# Sample Output
+
+* Click on the application URL to open the application in a separate tab.
+
+![](doc/source/images/open-app.png?raw=true)
+
+* When the application appears click on `Score now` to test the scoring model with the default values.
+
+* Verify that the model predicts that there is a risk of heart failure for the patient with these medical characteristics.
+
+![](doc/source/images/failure-yes.png?raw=true)
+
+* `Click Close`. Run the app again with the following parameters.
+
+![Score](doc/source/images/Picture33.png)
+
+* Verify that the model predicts that there is not a risk of heart failure for the patient with these medical characteristics.
+
+![](doc/source/images/failure-no.png?raw=true)
+
+# Troubleshooting
 
 
-## Step 10: Test the deployed Model
+# Privacy Notice
+If using the `Deploy to IBM Cloud` button some metrics are tracked, the following
+information is sent to a [Deployment Tracker](https://github.com/IBM/cf-deployment-tracker-service) service
+on each deployment:
 
-In this part of the lab you’ll test the deployed model with the Node.js application that you deployed earlier.
+* Node.js package version
+* Node.js repository URL
+* Application Name (`application_name`)
+* Application GUID (`application_id`)
+* Application instance index number (`instance_index`)
+* Space ID (`space_id`)
+* Application Version (`application_version`)
+* Application URIs (`application_uris`)
+* Labels of bound services
+* Number of instances for each bound service and associated plan information
 
-1. Click on the application URL to open the application in a separate tab.
+This data is collected from the `package.json` file in the sample application and the `VCAP_APPLICATION` and `VCAP_SERVICES` environment variables in IBM Cloud and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Cloud to measure the usefulness of our examples, so that we can continuously improve the content we offer to you. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
 
-![Test Deployed Model][33]
+## Disabling Deployment Tracking
 
-3. When the application appears click on **Score now** to test the scoring model with the default values.  
+To disable tracking, simply remove ``require("cf-deployment-tracker-client").track();`` from the ``app.js`` file in the top level directory.
 
-4. Verify that the model predicts that there is a risk of heart failure for the patient with these medical characteristics.
-
-![Score][34]
-
-5. **Click Close**. Run the app again with the following parameters.
-
-![Score](images/Picture33.png)
-
-6. Verify that the model predicts that there is not a risk of heart failure for the patient with these medical characteristics.
-
-![Score][35]
-
-Congratulations, you successfully created a predictive model in Apache Spark and deployed and tested it using the Watson Machine Learning Service on IBM Cloud :smiley:!!
-
-## Additional links
+# Links
 
 * More data science journeys on IBM Code: [https://developer.ibm.com/code/journey/category/data-science/](https://developer.ibm.com/code/journey/category/data-science/)
 * IBM Data Science Experience: [https://www.ibm.com/analytics/us/en/watson-data-platform/data-science-experience/](https://www.ibm.com/analytics/us/en/watson-data-platform/data-science-experience/)
 * Watson Data Platform: [https://www.ibm.com/analytics/us/en/watson-data-platform/](https://www.ibm.com/analytics/us/en/watson-data-platform/)
 
-
-[1]: images/terms.png?raw=true
-[2]: images/create-org.png?raw=true
-[3]: images/create-space.png?raw=true
-[4]: images/create-us-space.png?raw=true
-[5]: images/select-region.png?raw=true
-[6]: images/dsx-dashboard.png?raw=true
-[7]: images/pipeline.png?raw=true
-[8]: images/create-ml-instance.png?raw=true
-[9]: images/connect-to.png?raw=true
-[10]: images/overview-services-and-app.png?raw=true
-[11]: images/new-project.png?raw=true
-[12]: images/browse-file.png?raw=true
-[13]: images/data-assets.png?raw=true
-[14]: images/download-csv.png?raw=true
-[15]: images/add-notebook.png?raw=true
-[16]: images/create-notebook.png?raw=true
-[17]: images/launch-dashboard.png?raw=true
-[18]: images/create-deployment1.png?raw=true
-[19]: images/create-deployment2.png?raw=true
-[20]: images/create-deployment3.png?raw=true
-[21]: images/toolchain.png?raw=true
-[22]: images/deploy-stage.png?raw=true
-[23]: images/restage-app.png?raw=true
-[24]: images/settings.png?raw=true
-[25]: images/add-associated-service.png?raw=true
-[26]: images/choose-ml-service.png?raw=true
-[27]: images/associated-services.png?raw=true
-[28]: images/services-overview.png?raw=true
-[29]: images/ml-credentials.png?raw=true
-[30]: images/insert-credentials2.png?raw=true
-[31]: images/run-notebook.png?raw=true
-[32]: images/restart-app.png?raw=true
-[33]: images/open-app.png?raw=true
-[34]: images/failure-yes.png?raw=true
-[35]: images/failure-no.png?raw=true
-[36]: images/dsx-signup.png?raw=true
-[37]: images/use-existing-id.png?raw=true
-[38]: images/create-services.png?raw=true
-[39]: images/add-to-project.png?raw=true
-[40]: images/add-data-asset.png?raw=true
-[41]: images/connect-to-app.png?raw=true
-[42]: images/dsx-service.png?raw=true
-[43]: images/dsx-create.png?raw=true
+# Learn more
 
 
+* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/code/technologies/artificial-intelligence/).
+* **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/code/technologies/data-science/)
+* **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
+* **With Watson**: Want to take your Watson app to the next level? Looking to utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/) to leverage exclusive brand, marketing, and tech resources to amplify and accelerate your Watson embedded commercial solution.
+* **Data Science Experience**: Master the art of data science with IBM's [Data Science Experience](https://datascience.ibm.com/)
+* **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://console.bluemix.net/catalog/services/apache-spark)
+
+[1]: doc/source/images/terms.png?raw=true
+[2]: doc/source/images/create-org.png?raw=true
+[3]: doc/source/images/create-space.png?raw=true
+[4]: doc/source/images/create-us-space.png?raw=true
+[5]: doc/source/images/select-region.png?raw=true
+[6]: doc/source/images/dsx-dashboard.png?raw=true
+[7]: doc/source/images/pipeline.png?raw=true
+[8]: doc/source/images/create-ml-instance.png?raw=true
+[9]: doc/source/images/connect-to.png?raw=true
+[10]: doc/source/images/overview-services-and-app.png?raw=true
+[11]: doc/source/images/new-project.png?raw=true
+[12]: doc/source/images/browse-file.png?raw=true
+[13]: doc/source/images/data-assets.png?raw=true
+[14]: doc/source/images/download-csv.png?raw=true
+[15]: doc/source/images/add-notebook.png?raw=true
+[16]: doc/source/images/create-notebook.png?raw=true
+[17]: doc/source/images/launch-dashboard.png?raw=true
+[18]: doc/source/images/create-deployment1.png?raw=true
+[19]: doc/source/images/create-deployment2.png?raw=true
+[20]: doc/source/images/create-deployment3.png?raw=true
+[21]: doc/source/images/toolchain.png?raw=true
+[22]: doc/source/images/deploy-stage.png?raw=true
+[23]: doc/source/images/restage-app.png?raw=true
+[24]: doc/source/images/settings.png?raw=true
+[25]: doc/source/images/add-associated-service.png?raw=true
+[26]: doc/source/images/choose-ml-service.png?raw=true
+[27]: doc/source/images/associated-services.png?raw=true
+[28]: doc/source/images/services-overview.png?raw=true
+[29]: doc/source/images/ml-credentials.png?raw=true
+[30]: doc/source/images/insert-credentials2.png?raw=true
+[31]: doc/source/images/run-notebook.png?raw=true
+[32]: doc/source/images/restart-app.png?raw=true
+[33]: doc/source/images/open-app.png?raw=true
+[34]: doc/source/images/failure-yes.png?raw=true
+[35]: doc/source/images/failure-no.png?raw=true
+[36]: doc/source/images/dsx-signup.png?raw=true
+[37]: doc/source/images/use-existing-id.png?raw=true
+[38]: doc/source/images/create-services.png?raw=true
+[39]: doc/source/images/add-to-project.png?raw=true
+[40]: doc/source/images/add-data-asset.png?raw=true
+[41]: doc/source/images/connect-to-app.png?raw=true
+[42]: doc/source/images/dsx-service.png?raw=true
+[43]: doc/source/images/dsx-create.png?raw=true
+
+# License
+[Apache 2.0](LICENSE)
