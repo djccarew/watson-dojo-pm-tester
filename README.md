@@ -313,49 +313,5 @@ To disable tracking, simply remove ``require("cf-deployment-tracker-client").tra
 * **Data Science Experience**: Master the art of data science with IBM's [Data Science Experience](https://datascience.ibm.com/)
 * **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://console.bluemix.net/catalog/services/apache-spark)
 
-[1]: doc/source/images/terms.png?raw=true
-[2]: doc/source/images/create-org.png?raw=true
-[3]: doc/source/images/create-space.png?raw=true
-[4]: doc/source/images/create-us-space.png?raw=true
-[5]: doc/source/images/select-region.png?raw=true
-[6]: doc/source/images/dsx-dashboard.png?raw=true
-[7]: doc/source/images/pipeline.png?raw=true
-[8]: doc/source/images/create-ml-instance.png?raw=true
-[9]: doc/source/images/connect-to.png?raw=true
-[10]: doc/source/images/overview-services-and-app.png?raw=true
-[11]: doc/source/images/new-project.png?raw=true
-[12]: doc/source/images/browse-file.png?raw=true
-[13]: doc/source/images/data-assets.png?raw=true
-[14]: doc/source/images/download-csv.png?raw=true
-[15]: doc/source/images/add-notebook.png?raw=true
-[16]: doc/source/images/create-notebook.png?raw=true
-[17]: doc/source/images/launch-dashboard.png?raw=true
-[18]: doc/source/images/create-deployment1.png?raw=true
-[19]: doc/source/images/create-deployment2.png?raw=true
-[20]: doc/source/images/create-deployment3.png?raw=true
-[21]: doc/source/images/toolchain.png?raw=true
-[22]: doc/source/images/deploy-stage.png?raw=true
-[23]: doc/source/images/restage-app.png?raw=true
-[24]: doc/source/images/settings.png?raw=true
-[25]: doc/source/images/add-associated-service.png?raw=true
-[26]: doc/source/images/choose-ml-service.png?raw=true
-[27]: doc/source/images/associated-services.png?raw=true
-[28]: doc/source/images/services-overview.png?raw=true
-[29]: doc/source/images/ml-credentials.png?raw=true
-[30]: doc/source/images/insert-credentials2.png?raw=true
-[31]: doc/source/images/run-notebook.png?raw=true
-[32]: doc/source/images/restart-app.png?raw=true
-[33]: doc/source/images/open-app.png?raw=true
-[34]: doc/source/images/failure-yes.png?raw=true
-[35]: doc/source/images/failure-no.png?raw=true
-[36]: doc/source/images/dsx-signup.png?raw=true
-[37]: doc/source/images/use-existing-id.png?raw=true
-[38]: doc/source/images/create-services.png?raw=true
-[39]: doc/source/images/add-to-project.png?raw=true
-[40]: doc/source/images/add-data-asset.png?raw=true
-[41]: doc/source/images/connect-to-app.png?raw=true
-[42]: doc/source/images/dsx-service.png?raw=true
-[43]: doc/source/images/dsx-create.png?raw=true
-
 # License
 [Apache 2.0](LICENSE)
