@@ -12,7 +12,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 * Deploy the model to IBM Watson Machine Learning service
 * Access the Machine Learning model via either APIs or a Nodejs app
 
-![](doc/source/images/Picture35.png)
+![](doc/source/images/architecture.png)
 
 ## Flow
 1. The developer creates an IBM Data Science Experience Workspace.
