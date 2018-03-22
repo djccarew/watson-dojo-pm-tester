@@ -1,8 +1,10 @@
 DISCLAIMER: This application is used for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review.
 
-#  Create and deploy a scoring model to predict heart failure on IBM Cloud with the Watson Data Platform
+# Create and deploy a scoring model to predict heart failure on IBM Cloud with the Watson Data Platform
 
-In this Code Pattern, we will use a Jupyter Notebook on IBM Data Science Experience to build a predictive model that demonstrates a potential health care use case.
+> Data Science Experience is now Watson Studio. Although some images in this code pattern may show the service as Data Science Experience, the steps and processes will still work.
+
+In this Code Pattern, we will use a Jupyter Notebook on IBM Watson Studio to build a predictive model that demonstrates a potential health care use case.
 This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Cloud](http://www.ng.bluemix.net/docs/#services/PredictiveModeling/index.html).
 See the [original app](https://github.com/pmservice/predictive-modeling-samples) for a walkthrough of the source code.
 
@@ -15,9 +17,9 @@ When the reader has completed this Code Pattern, they will understand how to:
 ![](doc/source/images/architecture.png)
 
 ## Flow
-1. The developer creates an IBM Data Science Experience Workspace.
-2. IBM Data Science Experience depends on an Apache Spark service.
-3. IBM Data Science Experience uses Cloud Object storage to manage your data.
+1. The developer creates an IBM Watson Studio Workspace.
+2. IBM Watson Studio depends on an Apache Spark service.
+3. IBM Watson Studio uses Cloud Object storage to manage your data.
 4. This lab is built around a Jupyter Notebook, this is where the developer will import data, train, and evaluate their model.
 5. Import data on heart failure.
 6. Trained models are deployed into production using IBM's Watson Machine Learning Service.
@@ -25,7 +27,7 @@ When the reader has completed this Code Pattern, they will understand how to:
 8. A user visits the web app, enters their information, and the predictive model returns a response.
 
 ## Included components
-* [IBM Data Science Experience](https://www.ibm.com/bs-en/marketplace/data-science-experience): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
+* [IBM Watson Studio](https://www.ibm.com/bs-en/marketplace/data-science-experience): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
 * [Jupyter Notebook](http://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
 * [PixieDust](https://github.com/ibm-watson-data-lab/pixiedust): Provides a Python helper library for IPython Notebook.
 
@@ -34,19 +36,21 @@ When the reader has completed this Code Pattern, they will understand how to:
 * [Data Science](https://medium.com/ibm-data-science-experience/): Systems and scientific methods to analyze structured and unstructured data in order to extract knowledge and insights.
 * [Node.js](https://nodejs.org/): An open-source JavaScript run-time environment for executing server-side JavaScript code.
 
+<!--
 # Watch the Video
 TBD
+-->
 
 # Steps
 
 
 1. [Deploy the testing application](#1-deploy-the-testing-application)
 2. [Create an instance of the Watson Machine Learning Service](#2-create-an-instance-of-the-watson-machine-learning-service)
-3. [Create an instance of the Data Science Experience Service](#3-create-an-instance-of-the-data-science-experience-service)
-4. [Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance](#4-create-a-project-in-ibm-data-science-experience-and-bind-it-to-your-watson-machine-learning-service-instance)
+3. [Create an instance of the Watson Studio Service](#3-create-an-instance-of-the-data-science-experience-service)
+4. [Create a project in IBM Watson Studio and bind it to your Watson Machine Learning service instance](#4-create-a-project-in-ibm-data-science-experience-and-bind-it-to-your-watson-machine-learning-service-instance)
 5. [Save the credentials for your Watson Machine Learning Service](#5-save-the-credentials-for-your-watson-machine-learning-service)
-6. [Create a notebook in IBM Data Science Experience](#6-create-a-notebook-in-ibm-data-science-experience)
-7. [Run the notebook in IBM Data Science Experience](#7-run-the-notebook-in-ibm-data-science-experience)
+6. [Create a notebook in IBM Watson Studio](#6-create-a-notebook-in-ibm-data-science-experience)
+7. [Run the notebook in IBM Watson Studio](#7-run-the-notebook-in-ibm-data-science-experience)
 8. [Deploy the saved predictive model as a scoring service](#8-deploy-the-saved-predictive-model-as-a-scoring-service)
 
 
@@ -54,7 +58,7 @@ TBD
 
 * An [IBM Cloud Account](https://console.bluemix.net)
 
-* An account on [IBM Data Science Experience](https://datascience.ibm.com).
+* An account on [IBM Watson Studio](https://dataplatform.ibm.com).
 
 * A space in IBM Cloud US South or United Kingdom regions.
 
@@ -66,12 +70,11 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
   [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/predictive-model-on-watson-ml)
 
-> Note:  Make sure to deploy the application to the same region and space as where the *Apache Spark* and *Cloud Object Storage* services were created when you signed up for IBM Data Science Experience. Please take note of this space as later in this lab the Watson Machine Learning service needs to be deployed into the same space.
+> Note:  Make sure to deploy the application to the same region and space as where the *Apache Spark* and *Cloud Object Storage* services were created when you signed up for IBM Watson Studio. Please take note of this space as later in this lab the Watson Machine Learning service needs to be deployed into the same space.
 
 * Click on `Deploy` to deploy the application.
 
-  ![](doc/source/images/pipeline.png?raw=true
-)
+  ![](doc/source/images/pipeline.png?raw=true)
 
 * A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to IBM Cloud. Click on the Delivery Pipeline tile to see the status of the deployment.
 
@@ -85,7 +88,7 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 * In your browser go to the [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/apps) and click `Catalog`.
 
-* In the navigation menu at the left, select `Data  & Analytics` (under `Platform`) and then select `Machine Learning`.
+* Search for `Machine Learning`.
 
   ![](doc/source/images/create-ml-instance.png?raw=true)
 
@@ -107,11 +110,11 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
   ![](doc/source/images/overview-services-and-app.png?raw=true)
 
-### 3. Create an instance of the Data Science Experience Service
+### 3. Create an instance of the Watson Studio Service
 
 * In your browser go to the IBM Cloud Dashboard and click `Catalog`.
 
-* In the navigation menu at the left, select `Data  & Analytics` (under `Platform`) and then select `Data Science Experience`.
+* Search for `Watson Studio`.
 
   ![](doc/source/images/dsx-service.png?raw=true)
 
@@ -121,21 +124,15 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 * Click `Create`
 
-### 4. Create a project in IBM Data Science Experience and bind it to your Watson Machine Learning service instance
+### 4. Create a project in IBM Watson Studio and bind it to your Watson Machine Learning service instance
 
-* In a new browser tab go to [https://datascience.ibm.com](https://datascience.ibm.com).
+* Sign up for IBM's [Watson Studio](https://dataplatform.ibm.com). By creating a project in Watson Studio a free tier ``Object Storage`` service will be created in your IBM Cloud account. Take note of your service names as you will need to select them in the following steps.
 
-* Click on `Sign In` at the top of the page.
-
-* From the dashboard, click on `New Project` from the dashboard.
-
-  ![](doc/source/images/new-project.png?raw=true)
-
-* DSX projects depend on two services: Object Storage, and a Compute Engine.  If you don't already have Object Storage or a Compute Engine, you can create a new instance of each service while defining a new project.  The _New Project_ panel is easy to use, either select an existing service on the right, or create a new one.  In the example below services need to be created.
+> Note: When creating your Object Storage service, select the ``Free`` storage type in order to avoid having to pay an upgrade fee.
 
   ![](doc/source/images/create-services.png?raw=true)
 
-> Note: Services created must be in the same region, and space, as your Data Science Experience service.
+> Note: Services created must be in the same region, and space, as your Watson Studio service.
 
 * Enter _Watson ML Integration_ as the project name and click `Create`.
 
@@ -185,21 +182,21 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 * Save the username, password and instance_id to a text file on your machine. You’ll need this information later in your Jupyter notebook.
 
-### 6. Create a notebook in IBM Data Science Experience
+### 6. Create a notebook in IBM Watson Studio
 
-* If you don't have your newly created Project open, first click `Projects` -> `View All Projects`, and then select your newly created project from Step 4. Next, in the Data Science Experience browser tab click on `Overview` and then click `add notebooks`.
-
-  ![](doc/source/images/add-notebook.png?raw=true)
-
-* Click on `From URL` and name the notebook _Apache Spark integration with Watson ML_.
-
+* In [Watson Studio](https://dataplatform.ibm.com), click on `Create notebook` to create a notebook.
+* Create a project if necessary, provisioning an object storage service if required.
+* In the `Assets` tab, select the `Create notebook` option.
+* Select the `From URL` tab.
+* Enter a name for the notebook.
+* Optionally, enter a description for the notebook.
 * Under `Notebook URL` provide the following url: https://github.com/IBM/predictive-model-on-watson-ml/blob/master/demo1.ipynb
+* Select the free Anaconda runtime.
+* Click the `Create` button.
 
   ![](doc/source/images/create-notebook.png?raw=true)
 
-* Click `Create Notebook` to create the new notebook.
-
-### 7. Run the notebook in IBM Data Science Experience
+### 7. Run the notebook in IBM Watson Studio
 
 * Place your cursor in the first code block in the notebook.
 
@@ -297,20 +294,13 @@ This data is collected from the `package.json` file in the sample application an
 
 To disable tracking, simply remove ``require("cf-deployment-tracker-client").track();`` from the ``app.js`` file in the top level directory.
 
-# Links
-
-* More data science journeys on IBM Code: [https://developer.ibm.com/code/journey/category/data-science/](https://developer.ibm.com/code/journey/category/data-science/)
-* IBM Data Science Experience: [https://www.ibm.com/analytics/us/en/watson-data-platform/data-science-experience/](https://www.ibm.com/analytics/us/en/watson-data-platform/data-science-experience/)
-* Watson Data Platform: [https://www.ibm.com/analytics/us/en/watson-data-platform/](https://www.ibm.com/analytics/us/en/watson-data-platform/)
-
 # Learn more
-
 
 * **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/code/technologies/artificial-intelligence/).
 * **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/code/technologies/data-science/)
 * **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
 * **With Watson**: Want to take your Watson app to the next level? Looking to utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/) to leverage exclusive brand, marketing, and tech resources to amplify and accelerate your Watson embedded commercial solution.
-* **Data Science Experience**: Master the art of data science with IBM's [Data Science Experience](https://datascience.ibm.com/)
+* **Watson Studio**: Master the art of data science with IBM's [Watson Studio](https://dataplatform.ibm.com/)
 * **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://console.bluemix.net/catalog/services/apache-spark)
 
 # License
