@@ -45,13 +45,14 @@ TBD
 
 
 1. [Deploy the testing application](#1-deploy-the-testing-application)
-2. [Create an instance of the Watson Machine Learning Service](#2-create-an-instance-of-the-watson-machine-learning-service)
-3. [Create an instance of the Watson Studio Service](#3-create-an-instance-of-the-data-science-experience-service)
-4. [Create a project in IBM Watson Studio and bind it to your Watson Machine Learning service instance](#4-create-a-project-in-ibm-data-science-experience-and-bind-it-to-your-watson-machine-learning-service-instance)
-5. [Save the credentials for your Watson Machine Learning Service](#5-save-the-credentials-for-your-watson-machine-learning-service)
-6. [Create a notebook in IBM Watson Studio](#6-create-a-notebook-in-ibm-data-science-experience)
-7. [Run the notebook in IBM Watson Studio](#7-run-the-notebook-in-ibm-data-science-experience)
-8. [Deploy the saved predictive model as a scoring service](#8-deploy-the-saved-predictive-model-as-a-scoring-service)
+1. [Create an instance of the Watson Machine Learning Service](#2-create-an-instance-of-the-watson-machine-learning-service)
+1. [Create a project in IBM Watson Studio and bind it to your Watson Machine Learning service instance](#3-create-a-project-in-ibm-data-science-experience-and-bind-it-to-your-watson-machine-learning-service-instance)
+1. [Save the credentials for your Watson Machine Learning Service](#4-save-the-credentials-for-your-watson-machine-learning-service)
+1. [Create a notebook in IBM Watson Studio](#5-create-a-notebook-in-ibm-data-science-experience)
+1. [Run the notebook in IBM Watson Studio](#6-run-the-notebook-in-ibm-data-science-experience)
+1. [Deploy the saved predictive model as a scoring service using the web ui](#7-deploy-the-saved-predictive-model-as-a-scoring-service-using-the-web-ui)
+1. [Deploy the saved predictive model using APIs](#8-deploy-the-saved-predictive-model-using-apis)
+
 
 
 ## Prerequisites
@@ -76,182 +77,138 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
   ![](doc/source/images/pipeline.png?raw=true)
 
-* A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to IBM Cloud. Click on the Delivery Pipeline tile to see the status of the deployment.
-
-  ![](doc/source/images/toolchain.png?raw=true)
-
-* Wait for the **Deploy Stage** to complete successfully.
-
-  ![](doc/source/images/deploy-stage.png?raw=true)
+* A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to IBM Cloud. Click on the Delivery Pipeline tile to see the status of the deployment. Wait for the **Deploy Stage** to complete successfully.
 
 ### 2. Create an instance of the Watson Machine Learning Service
 
 * In your browser go to the [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/apps) and click `Catalog`.
 
-* Search for `Machine Learning`.
+* Search for `Machine Learning`, Verify this service is being created in the same space as the app in Step 1, and click `Create`.
 
-  ![](doc/source/images/create-ml-instance.png?raw=true)
-
-* Verify this service is being created in the same space as the app in Step 1.
-
-* Click `Create`.
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/machine-learning/create-machine-learning.png)
 
 * On the Watson ML Dashboard select `Connections` on left menu panel, and `Create Connection`.  Select the application that you deployed earlier in Step 1 of this lab connecting this Watson ML service to the Cloud Foundry application deployed.
 
-  ![](doc/source/images/connect-to.png?raw=true)
+  ![](doc/source/images/connect-to.png)
 
-* Click `Restage` when you’re prompted to restage your application.
+* Click `Restage` when you’re prompted to restage your application. The app will take a couple of minutes to be back in the `running` state.
 
-  ![](doc/source/images/restage-app.png?raw=true)
+### 3. Create a project in IBM Watson Studio and bind it to your Watson Machine Learning service instance
 
-  ![](doc/source/images/connect-to-app.png?raw=true)
+* In your browser go to the IBM Cloud Dashboard, click `Catalog`, and search for `Watson Studio`. Verify this service is being created in the same space as the app in Step 2, and click `Create`.
 
-* Go back to the IBM Cloud dashboard and wait until the app shows that it is running again.
+* Create a new project by clicking `+ New project` and choosing `Data Science`:
 
-  ![](doc/source/images/overview-services-and-app.png?raw=true)
-
-### 3. Create an instance of the Watson Studio Service
-
-* In your browser go to the IBM Cloud Dashboard and click `Catalog`.
-
-* Search for `Watson Studio`.
-
-  ![](doc/source/images/dsx-service.png?raw=true)
-
-* Verify this service is being created in the same space as the app in Step 2.
-
-  ![](doc/source/images/dsx-create.png?raw=true)
-
-* Click `Create`
-
-### 4. Create a project in IBM Watson Studio and bind it to your Watson Machine Learning service instance
-
-* Sign up for IBM's [Watson Studio](https://dataplatform.ibm.com). By creating a project in Watson Studio a free tier ``Object Storage`` service will be created in your IBM Cloud account. Take note of your service names as you will need to select them in the following steps.
-
-> Note: When creating your Object Storage service, select the ``Free`` storage type in order to avoid having to pay an upgrade fee.
-
-  ![](doc/source/images/create-services.png?raw=true)
+![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/project_choices.png)
 
 > Note: Services created must be in the same region, and space, as your Watson Studio service.
+> Note: If this is your first project in Watson Studio, an object storage instance will be created.
 
-* Enter _Watson ML Integration_ as the project name and click `Create`.
+* Enter a name for the project name and click `Create`.
 
 * From within the new project `Overview` panel, click `Add to project` on the top right, selecting `Data asset`.
 
-  ![](doc/source/images/add-to-project.png?raw=true)
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/watson-studio-add-data-asset.png)
 
   A panel on the right of the screen appears, select `load` and click on `Browse` to upload the data file you'll use to create a predictive model.
-
-  ![](doc/source/images/add-data-asset.png?raw=true)
 
 * On your machine, browse to the location of the file **patientdataV6.csv** in this repository in the **data/** directory. Select the file and click on Open (or the equivalent action for your operating system).
 
 * Once successfully uploaded, the file should appear in the `Data Assets` section.
 
-  ![](doc/source/images/data-assets.png?raw=true)
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/data-assets.png)
 
-* Click on `Settings` for the project.
+* Click on the `Settings` tab for the project, scroll down to `Associated services` and click `+ Add service` ->  `Machine Learning`.
 
-  ![](doc/source/images/settings.png?raw=true)
-
-* Click on add associated service and select `Machine Learning`.
-
-  ![](doc/source/images/add-associated-service.png?raw=true)
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/add-service-ML.png)
 
 * Choose your existing Machine Learning instance and click on `Select`.
 
-  ![](doc/source/images/choose-ml-service.png?raw=true)
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/watson-studio-add-existing-ML.png)
 
 * The Watson Machine Learning service is now listed as one of your `Associated Services`.
 
-  ![](doc/source/images/associated-services.png?raw=true)
+* Click on the `Settings` tab for the project, scroll down to `Associated services` and click `+ Add service` ->  `Spark`.
+
+* Either choose and `Existing` Spark service, or create a `New` one
+
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/add_existing_spark_service.png)
+
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/add_new_spark_service.png)
 
 * Leave the browser tab open for later.
 
-### 5. Save the credentials for your Watson Machine Learning Service
+### 4. Save the credentials for your Watson Machine Learning Service
 
 * In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to the Dashboard.
 
-* Click on your Watson Machine Learning instance under `Services`.
+* Click on your Watson Machine Learning instance under `Services`, click on `Service credentials` and then on `View credentials` to see the credentials.
 
-  ![](doc/source/images/services-overview.png?raw=true)
-
-* Click on `Service credentials` and then on `View credentials` to see the credentials.
-
-  ![](doc/source/images/ml-credentials.png?raw=true)
+  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/machine-learning/ML-service-credentials.png)
 
 * Save the username, password and instance_id to a text file on your machine. You’ll need this information later in your Jupyter notebook.
 
-### 6. Create a notebook in IBM Watson Studio
+### 5. Create a notebook in IBM Watson Studio
 
-* In [Watson Studio](https://dataplatform.ibm.com), click on `Create notebook` to create a notebook.
-* Create a project if necessary, provisioning an object storage service if required.
-* In the `Assets` tab, select the `Create notebook` option.
+* In [Watson Studio](https://dataplatform.ibm.com) using the project you've created, click on `+ Add to project` -> `Notebook` OR in the `Assets` tab under `Notebooks` choose `+ New notebook` to create a notebook.
 * Select the `From URL` tab.
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
 * Under `Notebook URL` provide the following url: https://github.com/IBM/predictive-model-on-watson-ml/blob/master/demo1.ipynb
-* Select the free Anaconda runtime.
+* Select the Spark runtime.
 * Click the `Create` button.
 
-  ![](doc/source/images/create-notebook.png?raw=true)
+  ![](doc/source/images/create-spark-notebook.png)
 
-### 7. Run the notebook in IBM Watson Studio
+### 6. Run the notebook in IBM Watson Studio
 
 * Place your cursor in the first code block in the notebook.
 
-  ![Insert Spark Data Frame Step 1](doc/source/images/Picture23.png)
+  ![Insert Spark Data Frame Step 1](doc/source/images/insert-point.png)
 
-* Click on the `Find and Add` data icon -- see step 1 in diagram below -- and then select `Insert to code` under the file **patientdataV6.csv**. This is step 2 in diagram below. Finally select `Insert Spark Data Frame` -- which is step 3 in diagram below.
+* Click on the `Find and Add` data icon -- see step 1 in diagram below -- and then select `Insert to code` under the file **patientdataV6.csv**. This is step 2 in diagram below. Finally select `Insert SparkSession Data Frame` -- which is step 3 in diagram below.
 
-  ![](doc/source/images/insert-credentials2.png?raw=true)
+  ![](doc/source/images/insert-spark-dataframe.png)
 
 > Note:  Make sure to rename the variable to `df_data` and add `.option('inferSchema','True')\`.
 
-  ![Insert Spark Data Frame Step 3](doc/source/images/Picture25.png)
+  ![Insert Spark Data Frame Step 3](doc/source/images/check-df-data.png)
+
+* Goto the cell that says `Stop here !!!!` during Step 5, insert the username and password that you saved from your Watson Machine Learning instance into the code before running it. Do the same after Step 6 `Save model to WML Service`.
+
+  ![](doc/source/images/insert-uname.png)
 
 * Click on the `Run` icon to run the code in the cell.
 
   ![](doc/source/images/run-notebook.png?raw=true)
 
+
 * Move your cursor to each code cell and run the code in it. Read the comments for each cell to understand what the code is doing. **Important** when the code in a cell is still running, the label to the left changes to **In [\*]**:.
   Do **not** continue to the next cell until the code is finished running.
 
-* When you get to the cell that says `Stop here !!!!` insert the username and password that you saved from your Watson Machine Learning instance into the code before running it.
 
-  ![Run Notebook](doc/source/images/Picture27.png)
+### 7. Deploy the saved predictive model as a scoring service using the web UI
 
-* Continue running each cell until you finish the entire notebook.
+* In Watson Studio](https://dataplatform.ibm.com) go to you project, under `Assets` -> `Models` and click on the model you've created: `Heart Failure Prediction Model`.
 
-### 8. Deploy the saved predictive model as a scoring service
+* Go to the `Deployments` tab and `+ Add Deployment`.
 
-* In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to your dashboard.
+* Give your Deployment a name, click `Create`, and it should show up with `STATUS` of `DEPLOY_SUCCESS`.
 
-* Click on the entry for your Watson Machine Learning service under `Services`.
+* Restart the Node.js Web App. For this, return to your IBM Cloud Dashboard, choose your application, and select restart from the `More action` three vertical dots
 
-* Click `Manage` and then click on the `Launch Dashboard` button in the Watson Machine Learning tile.
+![](doc/source/images/restart-app.png)
 
-![](doc/source/images/launch-dashboard.png?raw=true)
+### 8. Deploy the saved predictive model using APIs
 
-* Your saved model should appear. Under `Actions` select `Create Deployment`.
-
-![](doc/source/images/create-deployment1.png?raw=true)
-
-* Name the deployment _Heart Failure Prediction Model Deployment_ and click `Save`. Keep the type of deployment set to the default value 'Online'.
-
-![](doc/source/images/create-deployment2.png?raw=true)
-
-* Your model should now be deployed and visible as a Deployment with status 'ACTIVE'.
-
-![](doc/source/images/create-deployment3.png?raw=true)
-
-* Restart the Node.js Web App. For this, return to your IBM Cloud Dashboard and select the restart icon to restart the web application.
-
-![](doc/source/images/restart-app.png?raw=true)
+* To deploy the model using the APIs instead of using the Web UI, at Step 6.1, add the `instance_id` from yout Watson Machine Learning Service credentials.
+During Step 6.2, after running the second cell, get the `model_id` and put it in the cell that follows.
+Put the `deployment_id` in the cell under `Montitor the status of deployment`.
+For Step 6.3, add the `scoring_url` to the cell.
 
 # Sample Output
 
-* Click on the application URL to open the application in a separate tab.
+* In the dashboard, Click on the application name, then choose `Visit App URL` from the `Overview` page to open the application in a separate tab.
 
 ![](doc/source/images/open-app.png?raw=true)
 
@@ -263,36 +220,11 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 * `Click Close`. Run the app again with the following parameters.
 
-![Score](doc/source/images/Picture33.png)
+![Score](doc/source/images/failure-no-params.png)
 
 * Verify that the model predicts that there is not a risk of heart failure for the patient with these medical characteristics.
 
 ![](doc/source/images/failure-no.png?raw=true)
-
-# Troubleshooting
-
-
-# Privacy Notice
-If using the `Deploy to IBM Cloud` button some metrics are tracked, the following
-information is sent to a [Deployment Tracker](https://github.com/IBM/cf-deployment-tracker-service) service
-on each deployment:
-
-* Node.js package version
-* Node.js repository URL
-* Application Name (`application_name`)
-* Application GUID (`application_id`)
-* Application instance index number (`instance_index`)
-* Space ID (`space_id`)
-* Application Version (`application_version`)
-* Application URIs (`application_uris`)
-* Labels of bound services
-* Number of instances for each bound service and associated plan information
-
-This data is collected from the `package.json` file in the sample application and the `VCAP_APPLICATION` and `VCAP_SERVICES` environment variables in IBM Cloud and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Cloud to measure the usefulness of our examples, so that we can continuously improve the content we offer to you. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
-
-## Disabling Deployment Tracking
-
-To disable tracking, simply remove ``require("cf-deployment-tracker-client").track();`` from the ``app.js`` file in the top level directory.
 
 # Learn more
 
