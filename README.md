@@ -2,10 +2,8 @@ DISCLAIMER: This application is used for demonstrative and illustrative purposes
 
 # Create and deploy a scoring model to predict heart failure on IBM Cloud with the Watson Data Platform
 
-> Data Science Experience is now Watson Studio. Although some images in this code pattern may show the service as Data Science Experience, the steps and processes will still work.
-
 In this Code Pattern, we will use a Jupyter Notebook on IBM Watson Studio to build a predictive model that demonstrates a potential health care use case.
-This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Cloud](http://www.ng.bluemix.net/docs/#services/PredictiveModeling/index.html).
+This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Cloud](https://console.bluemix.net/docs/services/PredictiveModeling/index.html#WMLgettingstarted)
 See the [original app](https://github.com/pmservice/predictive-modeling-samples) for a walkthrough of the source code.
 
 When the reader has completed this Code Pattern, they will understand how to:
@@ -14,9 +12,10 @@ When the reader has completed this Code Pattern, they will understand how to:
 * Deploy the model to IBM Watson Machine Learning service
 * Access the Machine Learning model via either APIs or a Nodejs app
 
-![](doc/source/images/architecture.png)
+!["architecture diagram"](doc/source/images/architecture.png)
 
 ## Flow
+
 1. The developer creates an IBM Watson Studio Workspace.
 2. IBM Watson Studio depends on an Apache Spark service.
 3. IBM Watson Studio uses Cloud Object storage to manage your data.
@@ -27,13 +26,13 @@ When the reader has completed this Code Pattern, they will understand how to:
 8. A user visits the web app, enters their information, and the predictive model returns a response.
 
 ## Included components
-* [IBM Watson Studio](https://www.ibm.com/bs-en/marketplace/data-science-experience): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
+* [IBM Watson Studio](https://www.ibm.com/cloud/watson-studio): Analyze data using RStudio, Jupyter, and Python in a configured, collaborative environment that includes IBM value-adds, such as managed Spark.
 * [Jupyter Notebook](http://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
-* [PixieDust](https://github.com/ibm-watson-data-lab/pixiedust): Provides a Python helper library for IPython Notebook.
+* [PixieDust](https://github.com/pixiedust/pixiedust): Provides a Python helper library for IPython Notebook.
 
 ## Featured technologies
-* [Artificial Intelligence](https://medium.com/ibm-data-science-experience): Artificial intelligence can be applied to disparate solution spaces to deliver disruptive technologies.
-* [Data Science](https://medium.com/ibm-data-science-experience/): Systems and scientific methods to analyze structured and unstructured data in order to extract knowledge and insights.
+* [Artificial Intelligence](https://developer.ibm.com/technologies/artificial-intelligence/): Artificial intelligence can be applied to disparate solution spaces to deliver disruptive technologies.
+* [Data Science](https://developer.ibm.com/technologies/data-science/): Systems and scientific methods to analyze structured and unstructured data in order to extract knowledge and insights.
 * [Node.js](https://nodejs.org/): An open-source JavaScript run-time environment for executing server-side JavaScript code.
 
 <!--
@@ -46,10 +45,10 @@ TBD
 
 1. [Deploy the testing application](#1-deploy-the-testing-application)
 1. [Create an instance of the Watson Machine Learning Service](#2-create-an-instance-of-the-watson-machine-learning-service)
-1. [Create a project in IBM Watson Studio and bind it to your Watson Machine Learning service instance](#3-create-a-project-in-ibm-data-science-experience-and-bind-it-to-your-watson-machine-learning-service-instance)
+1. [Create a project in IBM Watson Studio and bind it to your Watson Machine Learning service instance](#3-create-a-project-in-ibm-watson-studio-and-bind-it-to-your-watson-machine-learning-service-instance)
 1. [Save the credentials for your Watson Machine Learning Service](#4-save-the-credentials-for-your-watson-machine-learning-service)
-1. [Create a notebook in IBM Watson Studio](#5-create-a-notebook-in-ibm-data-science-experience)
-1. [Run the notebook in IBM Watson Studio](#6-run-the-notebook-in-ibm-data-science-experience)
+1. [Create a notebook in IBM Watson Studio](#5-create-a-notebook-in-ibm-watson-studio)
+1. [Run the notebook in IBM Watson Studio](#6-run-the-notebook-in-ibm-watson-studio)
 1. [Deploy the saved predictive model as a scoring service using the web ui](#7-deploy-the-saved-predictive-model-as-a-scoring-service-using-the-web-ui)
 1. [Deploy the saved predictive model using APIs](#8-deploy-the-saved-predictive-model-using-apis)
 
@@ -59,9 +58,9 @@ TBD
 
 * An account on [IBM Watson Studio](https://dataplatform.ibm.com).
 
-* A space in IBM Cloud US South or United Kingdom regions.
+* A space in IBM Cloud Dallas, London, Frankfurt, or Tokyo regions.
 
-As of 2/5/2018, the Machine Learning service on IBM Cloud is only available in the US South or United Kingdom regions.
+As of 12/14/2018, the Machine Learning service on IBM Cloud is only available in the Dallas, London, Frankfurt, or Tokyo regions.
 
 ### 1. Deploy the testing application
 
@@ -73,8 +72,6 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 * Click on `Deploy` to deploy the application.
 
-  ![](doc/source/images/pipeline.png?raw=true)
-
 * A Toolchain and Delivery Pipeline will be created for you to pull the app out of Github and deploy it in to IBM Cloud. Click on the Delivery Pipeline tile to see the status of the deployment. Wait for the **Deploy Stage** to complete successfully.
 
 ### 2. Create an instance of the Watson Machine Learning Service
@@ -83,7 +80,7 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 * Search for `Machine Learning`, Verify this service is being created in the same space as the app in Step 1, and click `Create`.
 
-  ![](https://raw.githubusercontent.com/IBM/pattern-images/master/machine-learning/create-machine-learning.png)
+  !["Create Machine Learning"](https://github.com/IBM/pattern-utils/blob/master/machine-learning/create-machine-learning.png)
 
 * On the Watson ML Dashboard select `Connections` on left menu panel, and `Create Connection`.  Select the application that you deployed earlier in Step 1 of this lab connecting this Watson ML service to the Cloud Foundry application deployed.
 
@@ -93,14 +90,16 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 ### 3. Create a project in IBM Watson Studio and bind it to your Watson Machine Learning service instance
 
-* In your browser go to the IBM Cloud Dashboard, click `Catalog`, and search for `Watson Studio`. Verify this service is being created in the same space as the app in Step 2, and click `Create`.
-
+* Sign up for IBM's [Watson Studio](https://dataplatform.ibm.com).
 * Create a new project by clicking `+ New project` and choosing `Data Science`:
 
-![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/project_choices.png)
+![](https://github.com/IBM/pattern-utils/tree/master/watson-studio/CreateDataScienceProject.png)
+
+> Note: By creating a project in Watson Studio a free tier `Object Storage` service will be created in your IBM Cloud account. Take note of your service names as you will need to select them in the following steps.
+
+> Note: When creating your Object Storage service, select the `Free` storage type in order to avoid having to pay an upgrade fee.
 
 > Note: Services created must be in the same region, and space, as your Watson Studio service.
-> Note: If this is your first project in Watson Studio, an object storage instance will be created.
 
 * Enter a name for the project name and click `Create`.
 
@@ -116,11 +115,9 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
   ![](https://raw.githubusercontent.com/IBM/pattern-images/master/watson-studio/data-assets.png)
 
-* Click on the `Settings` tab for the project, scroll down to `Associated services` and click `+ Add service` ->  `Watson`.
+* Click on the `Services` pull-down at the top of the page, click on `Watson services` and click `+ Add service':
 
-  ![](doc/source/images/add-service-ML.png)
-
-* Click `Add` on the Machine Learning learning tile
+  ![](https://github.com/IBM/pattern-utils/blob/master/watson-studio/StudioWatsonServicesAdd.png)
 
 * Choose your existing Machine Learning instance and click on `Select`.
 
@@ -154,7 +151,7 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 * Select the `From URL` tab.
 * Enter a name for the notebook.
 * Optionally, enter a description for the notebook.
-* Under `Notebook URL` provide the following url: https://github.com/IBM/predictive-model-on-watson-ml/blob/master/demo1.ipynb
+* Under `Notebook URL` provide the following url: [https://github.com/IBM/predictive-model-on-watson-ml/blob/master/notebooks/predictiveModel.ipynb](https://github.com/IBM/predictive-model-on-watson-ml/blob/master/notebooks/predictiveModel.ipynb)
 * Select the Spark runtime with Python 3.5 .
 * Click the `Create` button.
 
@@ -174,7 +171,7 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
   ![Insert Spark Data Frame Step 3](doc/source/images/check-df-data.png)
 
-* Goto the cell that says `Stop here !!!!` during Step 5, insert the username and password that you saved from your Watson Machine Learning instance into the code before running it. Do the same after Step 6 `Save model to WML Service`.
+* Goto the cell that says `Stop here !!!!` during Step 5, insert the username, password, and instance_id that you saved from your Watson Machine Learning instance into the code before running it. Do the same after Step 6 `Save model to WML Service`.
 
   ![](doc/source/images/insert-uname.png)
 
