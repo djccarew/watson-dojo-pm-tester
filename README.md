@@ -3,7 +3,7 @@ DISCLAIMER: This application is used for demonstrative and illustrative purposes
 # Create and deploy a scoring model to predict heart failure on IBM Cloud with the Watson Data Platform
 
 In this Code Pattern, we will use a Jupyter Notebook on IBM Watson Studio to build a predictive model that demonstrates a potential health care use case.
-This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Cloud](https://console.bluemix.net/docs/services/PredictiveModeling/index.html#WMLgettingstarted)
+This a customized version of the Node.js sample app that is available with the [Watson Machine Learning Service on IBM Cloud](https://cloud.ibm.com/docs/services/PredictiveModeling/index.html#WMLgettingstarted)
 See the [original app](https://github.com/pmservice/predictive-modeling-samples) for a walkthrough of the source code.
 
 When the reader has completed this Code Pattern, they will understand how to:
@@ -54,7 +54,7 @@ TBD
 
 ## Prerequisites
 
-* An [IBM Cloud Account](https://console.bluemix.net)
+* An [IBM Cloud Account](https://cloud.ibm.com)
 
 * An account on [IBM Watson Studio](https://dataplatform.ibm.com).
 
@@ -66,7 +66,7 @@ As of 12/14/2018, the Machine Learning service on IBM Cloud is only available in
 
 Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment process in a separate tab.
 
-  [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/predictive-model-on-watson-ml)
+  [![Deploy to IBM Cloud](https://cloud.ibm.com/deploy/button.png)](https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/IBM/predictive-model-on-watson-ml)
 
 > Note:  Make sure to deploy the application to the same region and space as where the *Apache Spark* and *Cloud Object Storage* services were created when you signed up for IBM Watson Studio. Please take note of this space as later in this lab the Watson Machine Learning service needs to be deployed into the same space.
 
@@ -76,7 +76,7 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 ### 2. Create an instance of the Watson Machine Learning Service
 
-* In your browser go to the [IBM Cloud Dashboard](https://console.bluemix.net/dashboard/apps) and click `Catalog`.
+* In your browser go to the [IBM Cloud Dashboard](https://cloud.ibm.com/dashboard/apps) and click `Catalog`.
 
 * Search for `Machine Learning`, Verify this service is being created in the same space as the app in Step 1, and click `Create`.
 
@@ -137,7 +137,7 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 ### 4. Save the credentials for your Watson Machine Learning Service
 
-* In a different browser tab go to [http://console.bluemix.net](http://console.bluemix.net) and log in to the Dashboard.
+* In a different browser tab go to [https://cloud.ibm.com](https://cloud.ibm.com) and log in to the Dashboard.
 
 * Click on your Watson Machine Learning instance under `Services`, click on `Service credentials` and then on `View credentials` to see the credentials.
 
@@ -230,7 +230,7 @@ For Step 6.3, add the `scoring_url` to the cell.
 * **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
 * **With Watson**: Want to take your Watson app to the next level? Looking to utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/) to leverage exclusive brand, marketing, and tech resources to amplify and accelerate your Watson embedded commercial solution.
 * **Watson Studio**: Master the art of data science with IBM's [Watson Studio](https://dataplatform.ibm.com/)
-* **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://console.bluemix.net/catalog/services/apache-spark)
+* **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://cloud.ibm.com/catalog/services/apache-spark)
 
 # License
 [Apache 2.0](LICENSE)
