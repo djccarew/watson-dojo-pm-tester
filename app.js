@@ -117,7 +117,8 @@ console.log(' ');
 			headers: {
 			   Authorization: 'Bearer ' + token				  
 			},
-			qs: { instance_id: env.instance_id, deployment_id: env.deployment_id, published_model_id: env.published_model_id },
+			// The following query parameters are not used when scoring against a WML Model
+			//qs: { instance_id: env.instance_id, deployment_id: env.deployment_id, published_model_id: env.published_model_id },
 			json: req.body.input
 		};
 		request(opts, function(err, r, body) {
