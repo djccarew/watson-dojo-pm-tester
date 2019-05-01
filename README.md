@@ -186,7 +186,7 @@ Use Ctrl-click on the Deploy to `IBM Cloud` button below to open the deployment 
 
 ### 7. Deploy the saved predictive model as a scoring service using the web UI
 
-* In Watson Studio](https://dataplatform.cloud.ibm.com/) go to you project, under `Assets` -> `Models` and click on the model you've created: `Heart Failure Prediction Model`.
+* In [Watson Studio](https://dataplatform.cloud.ibm.com/) go to you project, under `Assets` -> `Models` and click on the model you've created: `Heart Failure Prediction Model`.
 
 * Go to the `Deployments` tab and `+ Add Deployment`.
 
