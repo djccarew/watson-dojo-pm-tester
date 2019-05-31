@@ -1,12 +1,9 @@
-<div class="dlg">
-	<div class="title"><img alt="" src="img/pm24x24.png" />&nbsp;Score Results</div>
-	<div class="body">
-		<br />
-		<table class="'body table">
-			<thead>
-				<tr>
-					<th ng-repeat="fname in rspHeader">{{fname}}</th>
-				</tr>
+<div style="margin: 0.5em">
+	<h3 class="modal-title">Score Results</h3>
+	<div class="modal-body">
+		<table class="table table-bordered table-hover" style="word-wrap: break-word;">
+			<thead class="thead-dark">
+				<tr><th ng-repeat="fname in rspHeader">{{fname}}</th></tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="row in rspData">
@@ -14,6 +11,6 @@
 				</tr>
 			</tbody>
 		</table>
-		<button type="button" class="btn.lg" ng-click="cancel()"><i class="glyphicon glyphicon-ok"></i>&nbsp;Close&nbsp;</button>&nbsp;
+		<button type="button" class="btn btn-info" ng-click="cancel()"><i class="glyphicon glyphicon-ok"></i>&nbsp;Close&nbsp;</button>
 	</div>
 </div>
