@@ -1,12 +1,9 @@
-<div class="dlg">
-	<div class="title">Score Results</div>
-	<div class="body">
-		<br />
+<div style="margin: 0.5em">
+	<h2 class="text-center">Score Results</h2>
+	<div class="container">
 		<table class="'body table">
 			<thead>
-				<tr>
-					<th ng-repeat="fname in rspHeader">{{fname}}</th>
-				</tr>
+				<tr><th ng-repeat="fname in rspHeader">{{fname}}</th></tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="row in rspData">
@@ -14,6 +11,6 @@
 				</tr>
 			</tbody>
 		</table>
-		<button type="button" class="btn.lg" ng-click="cancel()"><i class="glyphicon glyphicon-ok"></i>&nbsp;Close&nbsp;</button>&nbsp;
+		<button type="button" class="btn btn-info" ng-click="cancel()"><i class="glyphicon glyphicon-ok"></i>&nbsp;Close&nbsp;</button>
 	</div>
 </div>

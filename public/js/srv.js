@@ -53,11 +53,11 @@ sampleSrv.factory("dialogServices",	['$modal',
 function($modal) {
 
 	this.resultsDlg	=	function (r) {
-        var prettyHeader = ['Age','Sex', 'Family History?','Smoker','Exercise/week','Cholesterol','BMI','Avg Beats/min','Palpitations per day','Heart failure risk ?','Confidence'];
+        var prettyHeader = ['Age','Gender', 'Family History','Smoker','Exercise minutes/week','Cholesterol','BMI','Average heart beats/min','Palpitations/day','Heart failure risk?','Confidence'];
 		return $modal.open({
 			templateUrl: 'partials/scoreResults.html',
 			controller:	'ResultsCtrl',
-			size:	'lg',
+			size:	'xl',
 			resolve: {
 				rspHeader: function	() {
 					//return r[0].header;
@@ -75,7 +75,7 @@ function($modal) {
 		return	$modal.open({
 			templateUrl: 'partials/error.html',
 			controller:	'ErrorCtrl',
-			size:	'lg',
+			size:	'xl',
 			resolve: {
 				msgTitle:	function ()	{
 					return msgTitle;
