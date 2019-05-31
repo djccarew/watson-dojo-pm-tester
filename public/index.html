@@ -2,8 +2,6 @@
 <html lang="en">
 	<meta charset="utf-8">
 	<title>IBM Watson Dojo Machine Learning service testing application</title>
-	<link rel="stylesheet" href="css/type.css" type="text/css" media="screen, projection" />
-	<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen, projection" />
 
 	<head>
 		<!-- bootstrap -->
@@ -22,58 +20,109 @@
 	</head>
 
 <body ng-app="bdadaysPMTester" ng-controller="AppCtrl" >
-	<div class="title"><img alt="" src="img/pm24x24.png" />&nbsp;IBM Watson Dojo Machine Learning service testing application</div>
-	<form name='scoreForm' novalidate>
-	<div class="body">
-		<div class="section">
+	<div class="container">
 
-				Age: <input name="age" type="text" ng-model="p.AGE" size="4" value="44" required />
-				 <span class="error" ng-show='scoreForm.age.$error.required'>Age required</span><br>
-				<br>
+		<h1 class="text-center">IBM Watson Machine Learning Example <small>By the IBM Developer Advocacy team</small></h1><br>
+		<form name='scoreForm' novalidate>
+			<div class="section">
 
-				Sex:&nbsp;&nbsp;
-					<input type="radio" ng-model="p.SEX" value="M">Male</input>&nbsp;&nbsp;
-					<input type="radio" ng-model="p.SEX" value="F" >Female</input><br>
-				<br>
+				<div class="form-group">
+					<label for="age">Age</label>
+					<input type="text" class="form-control" name="age" id="age"
+							required
+							ng-model="p.AGE">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Age is required
+					</div>
+				</div>
 
-				Family History ? &nbsp;&nbsp;
-					<input type="radio" ng-model="p.FAMILYHISTORY" value="Y">Yes</input>&nbsp;&nbsp;
-					<input type="radio" ng-model="p.FAMILYHISTORY" value="N">No</input><br>
-				<br>
+				<div class="form-group">
+					<label for="gender">Gender</label>
+					<select class="form-control" name="gender" id="gender"
+							required
+							ng-model="p.SEX">
+						<option value="M">Male</option>
+						<option value="F">Female</option>
+					</select>
+				</div>
 
-				Smoker last 5 years  ? &nbsp;&nbsp;
-					<input type="radio" ng-model="p.SMOKERLAST5YRS" value="Y">Yes</input>&nbsp;&nbsp;
-					<input type="radio" ng-model="p.SMOKERLAST5YRS" value="N">No</input><br>
-				<br>
+				<div class="form-group">
+					<label for="familyhistory">Family History</label>
+					<select class="form-control" name="familyhistory" id="familyhistory"
+							required
+							ng-model="p.FAMILYHISTORY">
+						<option value="Y">Yes</option>
+						<option value="N">No</option>
+					</select>
+				</div>
 
-				Exercise (minutes per week): <input name="exercise" "type="text" ng-model="p.EXERCISEMINPERWEEK" size="4" required />
-				 <span class="error" ng-show='scoreForm.exercise.$error.required'>Exercise activity required</span><br>
-				<br>
+				<div class="form-group">
+					<label for="smoker">Smoker</label>
+					<select class="form-control" name="smoker" id="smoker"
+							required
+							ng-model="p.SMOKERLAST5YRS">
+						<option value="Y">Yes</option>
+						<option value="N">No</option>
+					</select>
+				</div>
 
-			    Cholesterol: <input name="cholesterol" type="text" ng-model="p.CHOLESTEROL" size="4" required />
-				 <span class="error" ng-show='scoreForm.cholesterol.$error.required'>Cholesterol level required</span><br>
-				<br>
+				<div class="form-group">
+					<label for="exercise">Exercise (minutes per week)</label>
+					<input type="text" class="form-control" name="exercise" id="exercise"
+							required
+							ng-model="p.EXERCISEMINPERWEEK">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Exercise activity is required
+					</div>
+				</div>
 
-			    Body Mass Index (BMI) : <input name="bmi" ""type="text" ng-model="p.BMI" size="4" required />
-				 <span class="error" ng-show='scoreForm.bmi.$error.required'>BMI required</span><br>
-				<br>
+				<div class="form-group">
+					<label for="cholesterol">Cholesterol</label>
+					<input type="text" class="form-control" name="cholesterol" id="cholesterol"
+							required
+							ng-model="p.CHOLESTEROL">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Cholesterol level is required
+					</div>
+				</div>
 
-				Average heartbeats per minute : <input name="heartbeats" type="text" ng-model="p.AVGHEARTBEATSPERMIN" size="4" required />
-				 <span class="error" ng-show='scoreForm.heartbeats.$error.required'>Avg heartbeats/minute required</span><br>
-				<br>
+				<div class="form-group">
+					<label for="bmi">Body Mass Index (BMI)</label>
+					<input type="text" class="form-control" name="bmi" id="bmi"
+							required
+							ng-model="p.BMI">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						BMI is required
+					</div>
+				</div>
 
-				Number of palpitations per day : <input name="palpitations" type="text" ng-model="p.PALPITATIONSPERDAY" size="4" required />
-				 <span class="error" ng-show='scoreForm.palpitations.$error.required'>Number of palpitations per day required</span><br>
-				<br>
+				<div class="form-group">
+					<label for="heartbeats">Average heartbeats per minute</label>
+					<input type="text" class="form-control" name="heartbeats" id="heartbeats"
+							required
+							ng-model="p.AVGHEARTBEATSPERMIN">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Average heartbeats per minute is required
+					</div>
+				</div>
 
-		</div>
-		<div class="section">
-			<button type="button" ng-disabled="scoreForm.$invalid" class="btn.lg" ng-click="score()"><i class="glyphicon glyphicon-cloud-upload"></i>&nbsp;Score Now&nbsp;</button>
-		</div>
+				<div class="form-group">
+					<label for="palpitations">Number of palpitations per day</label>
+					<input type="text" class="form-control" name="palpitations" id="palpitations"
+							required
+							ng-model="p.PALPITATIONSPERDAY">
+					<div ng-show='scoreForm.age.$error.required' class="alert alert-danger">
+						Palpitations per day is required
+					</div>
+				</div>
+
+			</div>
+			<div class="section">
+				<button type="button" ng-disabled="scoreForm.$invalid" class="btn btn-success" ng-click="score()"><i class="glyphicon glyphicon-cloud-upload"></i>&nbsp;Score Now&nbsp;</button>
+			</div>
+		</form>
 	</div>
-	</form>
 
 </body>
-
 
 </html>
