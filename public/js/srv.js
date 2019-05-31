@@ -57,7 +57,7 @@ function($modal) {
 		return $modal.open({
 			templateUrl: 'partials/scoreResults.html',
 			controller:	'ResultsCtrl',
-			size:	'xl',
+			size:	'lg',
 			resolve: {
 				rspHeader: function	() {
 					//return r[0].header;
@@ -75,7 +75,7 @@ function($modal) {
 		return	$modal.open({
 			templateUrl: 'partials/error.html',
 			controller:	'ErrorCtrl',
-			size:	'xl',
+			size:	'lg',
 			resolve: {
 				msgTitle:	function ()	{
 					return msgTitle;
