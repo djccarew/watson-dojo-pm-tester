@@ -53,7 +53,7 @@ sampleSrv.factory("dialogServices",	['$modal',
 function($modal) {
 
 	this.resultsDlg	=	function (r) {
-        var prettyHeader = ['Age','Gender', 'Family History','Smoker','Exercise minutes/week','Cholesterol','BMI','Average heart beats/min','Palpitations/day','Heart failure risk?','Confidence'];
+        var prettyHeader = ['Age', 'Gender', 'History', 'Smoker', 'Exercise min/wk', 'Cholesterol', 'BMI', 'Avg beats/min', 'Palpitations', 'Heart risk?', 'Confidence'];
 		return $modal.open({
 			templateUrl: 'partials/scoreResults.html',
 			controller:	'ResultsCtrl',
