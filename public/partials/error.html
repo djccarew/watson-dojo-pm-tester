@@ -1,9 +1,5 @@
 <div style="margin: 0.5em">
 	<h3 class="modal-title">{{msgTitle}}</h3>
-	<div class="modal-body">
-		<pre>
-			JSON.stringify(JSON.parse({{message}}), undefined, 2)
-		</pre>
-	</div>
-	<button type="button" class="btn btn-info" ng-click="cancel()"><i class="glyphicon glyphicon-ok"></i>&nbsp;Close&nbsp;</button>
+	<div class="modal-body">{{message}}</div>
+	<button type="button" class="btn btn-info" ng-click="cancel()">Close</button>
 </div>
