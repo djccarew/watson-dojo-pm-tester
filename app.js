@@ -25,6 +25,8 @@ var path        = require('path');
 var bodyParser 	= require('body-parser');
 var express    	= require('express');
 var request 	= require('request');
+var btoa        = require('btoa');
+
 
 var app        	= express(); // define our app using express
 
@@ -35,7 +37,7 @@ var port = (process.env.PORT || 3000);
 // VCAP_SERVICES contains all the credentials of services bound to
 // this application. For details of its content, please refer to
 // the document or sample of each service.
-var env = { baseURL: '', accessKey: '' };
+var env = { baseURL: '', apikey: '', instance_id: '' };
 var token = null;
 var scoringHref = null;
 var services = JSON.parse(process.env.VCAP_SERVICES || "{}");
@@ -44,55 +46,67 @@ if (services['pm-20']) {
    service = services['pm-20'][0];
 }
 var credentials = service.credentials;
-if (credentials != null) {
-		env.baseURL = credentials.url;
-		env.accessKey = credentials.access_key;
-		env.instance_id = credentials.instance_id;
-		var options = {
-			url: env.baseURL + '/v3/identity/token',
+
+/* the credentials are of the form ...
+	"credentials": {
+		"apikey": "xxx",
+		"iam_apikey_description": "Auto-generated for binding 123",
+		"iam_apikey_name": "pm-20-dsx",
+		"iam_role_crn": "crn:v1:bluemix:public:iam::::serviceRole:Writer",
+		"iam_serviceid_crn": "crn:v1:bluemix:public:iam-identity::a/123::serviceid:ServiceId-123",
+		"instance_id": "123",
+		"url": "https://us-south.ml.cloud.ibm.com"
+	},
+*/
+
+
+if (credentials !== null) {
+	// use env.baseURL for calling WML APIs only. Do not use it for IAM auth. Use (https://iam.cloud.ibm.com) for IAM auth instead.
+	env.baseURL = credentials.url;
+	env.apikey = credentials.apikey;
+	env.instance_id = credentials.instance_id;
+	var options = {
+		url: 'https://iam.cloud.ibm.com/identity/token',
+		headers: { "Content-Type"  : "application/x-www-form-urlencoded",
+					"Authorization" : "Basic " + btoa('bx:bx') },
+		body: "apikey=" + credentials.apikey + "&grant_type=urn:ibm:params:oauth:grant-type:apikey",
+		method: 'POST'
+	};
+	request(options, function(err, res, body) {
+		if (err) {
+			console.log('Error from GET to retrieve token ' + err);
+			return;
+		}
+		token = JSON.parse(body).access_token;
+		console.log('Got an IAM token');
+		var opts = {
+			url: env.baseURL + '/v3/wml_instances/' + env.instance_id + '/deployments',
 			method: 'GET',
-			auth: {
-				user: credentials.username,
-				password: credentials.password
+			headers: {
+				Authorization: 'Bearer ' + token
 			},
-			json:true
+			json: true
 		};
-		request(options, function(err, res, body) {
+		request(opts, function(err, res, body) {
 			if (err) {
-				console.log('Error  from GET to retrieve token ' + err);
+				console.log('Error from GET to retrieve scoring href ' + err);
 				return;
 			}
 
-			token = body.token;
-			var opts = {
-			   url: env.baseURL + '/v3/wml_instances/' + env.instance_id + '/deployments',
-			   method: 'GET',
-			   headers: {
-				  Authorization: 'Bearer ' + token
-			   },
-			   json:true
+			for (i = 0; i < body.resources.length; i++) {
+				if (body.resources[i].entity.published_model.name == 'Heart Failure Prediction Model') {
+					scoringHref = body.resources[i].entity.scoring_url;
+					env.published_model_id = body.resources[i].entity.published_model.guid;
+					env.deployment_id = body.resources[i].metadata.guid;
+					console.log('Found Heart Failure Deployment Model');
+					break;
+					}
 			}
-			request(opts, function(err, res, body) {
-			   if (err) {
-			      console.log('Error from GET to retrieve scoring href ' + err);
-				  return;
-			   }
-
-			   for (i = 0; i < body.resources.length; i++) {
-				   if (body.resources[i].entity.published_model.name == 'Heart Failure Prediction Model') {
-					   scoringHref = body.resources[i].entity.scoring_url;
-					   env.published_model_id = body.resources[i].entity.published_model.guid;
-					   env.deployment_id = body.resources[i].metadata.guid;
-					   console.log('Found Heart Failure Deployment Model');
-					   break;
-					 }
-			   }
-			   if (!scoringHref) {
-				   console.log('Error: Did not find Heart Failure Deployment Model');
-			   }
-			});
+			if (!scoringHref) {
+				console.log('Error: Did not find Heart Failure Deployment Model');
+			}
 		});
-
+	});
 }
 
 // Only  URL paths prefixed by /score will be handled by our router
