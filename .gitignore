@@ -7,6 +7,11 @@ client/dist
 # Only exists if Bazel was run
 /bazel-out
 
+# server bits
+server/node_modules
+server/package-lock.json
+server/.env
+
 # dependencies
 /node_modules
 

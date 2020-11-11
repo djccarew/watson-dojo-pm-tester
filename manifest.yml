@@ -1,6 +1,10 @@
 ---
 applications:
-- name: watson-ml-tester
-  command: node app.js
+- path: ./server
+  name: watson-ml-tester
+  command: npm start
   instances: 1
-  memory: 128M
+  memory: 256M
+  env:
+    API_KEY: placeholder
+    DEPLOYMENT_URL: placeholder
