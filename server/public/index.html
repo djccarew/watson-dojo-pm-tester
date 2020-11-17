@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>IBM Watson Machine Learning Heart Risk Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Watson Natural Language Classifier for E-mail Spam" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <!--<link href="stylesheets/watson-bootstrap-dark.css" rel="stylesheet">-->
+    <link href="stylesheets/style.css" type="text/css" rel="stylesheet">
+
+    <body>
+
+        <div class="container">
+            <div class="row header">
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h1>IBM Watson Machine Learning Heart Risk Example
+                            <small>By the IBM Developer Advocacy team</small>
+                        </h1>
+                    </div>
+                    <div>
+                        <p>
+                            Use <a target="_blank" href="https://www.ibm.com/cloud/machine-learning/">Watson Machine Learning</a> to predict heart risk. Enter information below and see how it is classified.
+                        </p>
+                        <p>
+                            The Training Data: The data set used in this example was mocked up and is only for demonstrative and illustrative purposes only and does not constitute an offering that has gone through regulatory review.
+                        </p>
+                        <p>
+                            <a target="_blank" href="https://github.com/IBM/predictive-model-on-watson-ml"> Fork the code in GitHub </a> |
+                            <a target="_blank" href="https://www.ibm.com/cloud/machine-learning/"> WML Product Page </a> |
+                            <a target="_blank" href="https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/wml-ai.html"> View the docs </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="well">
+                        <form id="form" role="form">
+                            <div class="input-group classifier-input-form">
+                                <table>
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <label for="age">Age</label>
+                                            <input id="age" class="form-control input-lg" placeholder="Enter age" type="text" autofocus required />
+                                        </div>
+                                        <div>
+                                            <label for="gender">Gender</label>
+                                            <select id="gender" class="form-control input-lg" placeholder="Enter gender" type="text" autofocus required>
+                                                <option value="M">Male</option>
+                                                <option value="F">Female</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="familyhistory">Family History</label>
+                                            <select id="familyhistory" class="form-control input-lg" placeholder="Enter family history" type="text" autofocus required>
+                                                <option value="Y">Yes</option>
+                                                <option value="N">No</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="smoker">Smoker</label>
+                                            <select id="smoker" class="form-control input-lg" placeholder="Enter smoker" type="text" autofocus required>
+                                                <option value="Y">Yes</option>
+                                                <option value="N">No</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label for="exercise">Exercise (minutes per week)</label>
+                                            <input id="exercise" class="form-control input-lg" placeholder="Enter exercise" type="text" autofocus required />
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <label for="cholesterol">Cholesterol</label>
+                                            <input id="cholesterol" class="form-control input-lg" placeholder="Enter cholesterol" type="text" autofocus required />
+                                        </div>
+                                        <div>
+                                            <label for="bmi">Body Mass Index (BMI)</label>
+                                            <input id="bmi" class="form-control input-lg" placeholder="Enter BMI" type="text" autofocus required />
+                                        </div>
+                                        <div>
+                                            <label for="heartbeats">Average heartbeats per minute</label>
+                                            <input id="heartbeats" class="form-control input-lg" placeholder="Enter heartbeats" type="text" autofocus required />
+                                        </div>
+                                        <div>
+                                            <label for="palpitations">Number of palpitations per day</label>
+                                            <input id="palpitations" class="form-control input-lg" placeholder="Enter palpitations" type="text" autofocus required />
+                                        </div>
+                                    </td>
+                                </tr>
+                                </table>
+                            <div>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-lg classify-btn" type="submit">Classify
+                                        <i class="loading fa fa-spinner fa-spin"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row answers">
+                <div class="col-lg-12">
+                    <div class="well">
+                        <h1 class="answer"></h1>
+                        <p class="risk"></p>
+                        <p class="prediction"></p>
+                        <p class="probability"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="javascripts/index.js"></script>
+    </body>
