@@ -48,7 +48,7 @@ Here's an example of what the final web app looks like
 
 ### 1. Create an IBM Cloud API key
 
-To use the Watson Machine Learning service programmatically we'll need an API key. Even though this isn't used later on, let's create one now.
+To use the Watson Machine Learning service programmatically we'll need an API key. Even though this isn't used until later on, let's create one now.
 
 Navigate to <https://cloud.ibm.com/iam/apikeys> and choose to create a new API key.
 
